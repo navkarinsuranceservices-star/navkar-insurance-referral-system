@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Insurance Referral App | વાહન વીમા રેફરલ એપ</title>
+    <style>
+        /* Perplexity Design System */
+        :root {
+          /* Primitive Color Tokens */
+          --color-white: rgba(255, 255, 255, 1);
+          --color-black: rgba(0, 0, 0, 1);
+          --color-cream-50: rgba(252, 252, 249, 1);
+          --color-cream-100: rgba(255, 255, 253, 1);
+          --color-gray-200: rgba(245, 245, 245, 1);
+          --color-gray-300: rgba(167, 169, 169, 1);
+          --color-gray-400: rgba(119, 124, 124, 1);
+          --color-slate-500: rgba(98, 108, 113, 1);
+          --color-brown-600: rgba(94, 82, 64, 1);
+          --color-charcoal-700: rgba(31, 33, 33, 1);
+          --color-charcoal-800: rgba(38, 40, 40, 1);
+          --color-slate-900: rgba(19, 52, 59, 1);
+          --color-teal-300: rgba(50, 184, 198, 1);
+          --color-teal-400: rgba(45, 166, 178, 1);
+          --color-teal-500: rgba(33, 128, 141, 1);
+          --color-teal-600: rgba(29, 116, 128, 1);
+          --color-teal-700: rgba(26, 104, 115, 1);
+          --color-teal-800: rgba(41, 150, 161, 1);
+          --color-red-400: rgba(255, 84, 89, 1);
+          --color-red-500: rgba(192, 21, 47, 1);
+          --color-orange-400: rgba(230, 129, 97, 1);
+          --color-orange-500: rgba(168, 75, 47, 1);
+        
+          /* RGB versions for opacity control */
+          --color-brown-600-rgb: 94, 82, 64;
+          --color-teal-500-rgb: 33, 128, 141;
+          --color-slate-900-rgb: 19, 52, 59;
+          --color-slate-500-rgb: 98, 108, 113;
+          --color-red-500-rgb: 192, 21, 47;
+          --color-red-400-rgb: 255, 84, 89;
+          --color-orange-500-rgb: 168, 75, 47;
+          --color-orange-400-rgb: 230, 129, 97;
+        
+          /* Background color tokens (Light Mode) */
+          --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
+          --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
+          --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
+          --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
+          --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
+          --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
+          --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
+          --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
+        
+          /* Semantic Color Tokens (Light Mode) */
+          --color-background: var(--color-cream-50);
+          --color-surface: var(--color-cream-100);
+          --color-text: var(--color-slate-900);
+          --color-text-secondary: var(--color-slate-500);
+          --color-primary: var(--color-teal-500);
+          --color-primary-hover: var(--color-teal-600);
+          --color-primary-active: var(--color-teal-700);
+          --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+          --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+          --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+          --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+          --color-btn-primary-text: var(--color-cream-50);
+          --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+          --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+          --color-error: var(--color-red-500);
+          --color-success: var(--color-teal-500);
+          --color-warning: var(--color-orange-500);
+          --color-info: var(--color-slate-500);
+          --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+          --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+        
+          /* Common style patterns */
+          --focus-ring: 0 0 0 3px var(--color-focus-ring);
+          --focus-outline: 2px solid var(--color-primary);
+          --status-bg-opacity: 0.15;
+          --status-border-opacity: 0.25;
+          --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+          --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        
+          /* RGB versions for opacity control */
+          --color-success-rgb: 33, 128, 141;
+          --color-error-rgb: 192, 21, 47;
+          --color-warning-rgb: 168, 75, 47;
+          --color-info-rgb: 98, 108, 113;
+        
+          /* Typography */
+          --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+            BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
+            Monaco, Consolas, monospace;
+          --font-size-xs: 11px;
+          --font-size-sm: 12px;
+          --font-size-base: 14px;
+          --font-size-md: 14px;
+          --font-size-lg: 16px;
+          --font-size-xl: 18px;
+          --font-size-2xl: 20px;
+          --font-size-3xl: 24px;
+          --font-size-4xl: 30px;
+          --font-weight-normal: 400;
+          --font-weight-medium: 500;
+          --font-weight-semibold: 550;
+          --font-weight-bold: 600;
+          --line-height-tight: 1.2;
+          --line-height-normal: 1.5;
+          --letter-spacing-tight: -0.01em;
+        
+          /* Spacing */
+          --space-0: 0;
+          --space-1: 1px;
+          --space-2: 2px;
+          --space-4: 4px;
+          --space-6: 6px;
+          --space-8: 8px;
+          --space-10: 10px;
+          --space-12: 12px;
+          --space-16: 16px;
+          --space-20: 20px;
+          --space-24: 24px;
+          --space-32: 32px;
+        
+          /* Border Radius */
+          --radius-sm: 6px;
+          --radius-base: 8px;
+          --radius-md: 10px;
+          --radius-lg: 12px;
+          --radius-full: 9999px;
+        
+          /* Shadows */
+          --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+          --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+          --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+            0 2px 4px -1px rgba(0, 0, 0, 0.02);
+          --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+            0 4px 6px -2px rgba(0, 0, 0, 0.02);
+          --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+        
+          /* Animation */
+          --duration-fast: 150ms;
+          --duration-normal: 250ms;
+          --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        
+          /* Layout */
+          --container-sm: 640px;
+          --container-md: 768px;
+          --container-lg: 1024px;
+          --container-xl: 1280px;
+        }
+        
+        /* Base styles */
+        html {
+          font-size: var(--font-size-base);
+          font-family: var(--font-family-base);
+          line-height: var(--line-height-normal);
+          color: var(--color-text);
+          background-color: var(--color-background);
+          -webkit-font-smoothing: antialiased;
+          box-sizing: border-box;
+        }
+        
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        
+        *,
+        *::before,
+        *::after {
+          box-sizing: inherit;
+        }
+        
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          margin: 0;
+          font-weight: var(--font-weight-semibold);
+          line-height: var(--line-height-tight);
+          color: var(--color-text);
+          letter-spacing: var(--letter-spacing-tight);
+        }
+        
+        h1 {
+          font-size: var(--font-size-4xl);
+        }
+        h2 {
+          font-size: var(--font-size-3xl);
+        }
+        h3 {
+          font-size: var(--font-size-2xl);
+        }
+        h4 {
+          font-size: var(--font-size-xl);
+        }
+        h5 {
+          font-size: var(--font-size-lg);
+        }
+        h6 {
+          font-size: var(--font-size-md);
+        }
+        
+        p {
+          margin: 0 0 var(--space-16) 0;
+        }
+        
+        /* Buttons */
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: var(--space-12) var(--space-20);
+          border-radius: var(--radius-base);
+          font-size: var(--font-size-lg);
+          font-weight: 500;
+          line-height: 1.5;
+          cursor: pointer;
+          transition: all var(--duration-normal) var(--ease-standard);
+          border: none;
+          text-decoration: none;
+          position: relative;
+          min-height: 48px;
+        }
+        
+        .btn:focus-visible {
+          outline: none;
+          box-shadow: var(--focus-ring);
+        }
+        
+        .btn--primary {
+          background: var(--color-primary);
+          color: var(--color-btn-primary-text);
+        }
+        
+        .btn--primary:hover {
+          background: var(--color-primary-hover);
+        }
+        
+        .btn--primary:active {
+          background: var(--color-primary-active);
+        }
+        
+        .btn--secondary {
+          background: var(--color-secondary);
+          color: var(--color-text);
+        }
+        
+        .btn--secondary:hover {
+          background: var(--color-secondary-hover);
+        }
+        
+        .btn--secondary:active {
+          background: var(--color-secondary-active);
+        }
+        
+        .btn--full-width {
+          width: 100%;
+        }
+        
+        /* Form elements */
+        .form-control {
+          display: block;
+          width: 100%;
+          padding: var(--space-12) var(--space-16);
+          font-size: var(--font-size-lg);
+          line-height: 1.5;
+          color: var(--color-text);
+          background-color: var(--color-surface);
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-base);
+          transition: border-color var(--duration-fast) var(--ease-standard),
+            box-shadow var(--duration-fast) var(--ease-standard);
+          min-height: 48px;
+        }
+        
+        select.form-control {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background-image: var(--select-caret-light);
+          background-repeat: no-repeat;
+          background-position: right var(--space-12) center;
+          background-size: 16px;
+          padding-right: var(--space-32);
+        }
+        
+        .form-control:focus {
+          border-color: var(--color-primary);
+          outline: var(--focus-outline);
+        }
+        
+        .form-label {
+          display: block;
+          margin-bottom: var(--space-8);
+          font-weight: var(--font-weight-medium);
+          font-size: var(--font-size-lg);
+          color: var(--color-text);
+        }
+        
+        .form-group {
+          margin-bottom: var(--space-20);
+        }
+        
+        /* Card component */
+        .card {
+          background-color: var(--color-surface);
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-card-border);
+          box-shadow: var(--shadow-sm);
+          overflow: hidden;
+          transition: box-shadow var(--duration-normal) var(--ease-standard);
+        }
+        
+        .card:hover {
+          box-shadow: var(--shadow-md);
+        }
+        
+        .card__body {
+          padding: var(--space-20);
+        }
+        
+        .card__header {
+          padding: var(--space-20);
+          border-bottom: 1px solid var(--color-card-border-inner);
+        }
+        
+        /* Status indicators */
+        .status {
+          display: inline-flex;
+          align-items: center;
+          padding: var(--space-6) var(--space-12);
+          border-radius: var(--radius-full);
+          font-weight: var(--font-weight-medium);
+          font-size: var(--font-size-sm);
+        }
+        
+        .status--success {
+          background-color: rgba(
+            var(--color-success-rgb, 33, 128, 141),
+            var(--status-bg-opacity)
+          );
+          color: var(--color-success);
+          border: 1px solid
+            rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
+        }
+        
+        .status--error {
+          background-color: rgba(
+            var(--color-error-rgb, 192, 21, 47),
+            var(--status-bg-opacity)
+          );
+          color: var(--color-error);
+          border: 1px solid
+            rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
+        }
+        
+        .status--warning {
+          background-color: rgba(
+            var(--color-warning-rgb, 168, 75, 47),
+            var(--status-bg-opacity)
+          );
+          color: var(--color-warning);
+          border: 1px solid
+            rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
+        }
+        
+        .status--info {
+          background-color: rgba(
+            var(--color-info-rgb, 98, 108, 113),
+            var(--status-bg-opacity)
+          );
+          color: var(--color-info);
+          border: 1px solid
+            rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
+        }
+
+        /* Custom App Styles */
+        .app-container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--color-surface);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Loading states */
+        .btn--loading {
+            position: relative;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .btn--loading::after {
+            content: '';
+            position: absolute;
+            right: var(--space-12);
+            top: 50%;
+            width: 16px;
+            height: 16px;
+            margin-top: -8px;
+            border: 2px solid transparent;
+            border-top-color: currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Better mobile touch targets */
+        .btn {
+            min-height: 52px;
+            padding: var(--space-16) var(--space-20);
+        }
+        
+        .form-control {
+            min-height: 52px;
+            padding: var(--space-16);
+            font-size: var(--font-size-lg);
+        }
+        
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            top: var(--space-16);
+            left: var(--space-16);
+            right: var(--space-16);
+            background: var(--color-success);
+            color: var(--color-btn-primary-text);
+            padding: var(--space-16);
+            border-radius: var(--radius-lg);
+            z-index: 1000;
+            transform: translateY(-100px);
+            opacity: 0;
+            transition: all var(--duration-normal) var(--ease-standard);
+            text-align: center;
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .notification--error {
+            background: var(--color-error);
+        }
+        
+        .notification--warning {
+            background: var(--color-warning);
+        }
+
+        .app-header {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            padding: var(--space-16);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .app-header h1 {
+            color: var(--color-btn-primary-text);
+            font-size: var(--font-size-2xl);
+            margin: 0;
+        }
+
+        .app-content {
+            padding: var(--space-16);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-16);
+            margin-bottom: var(--space-24);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            margin-bottom: var(--space-20);
+        }
+
+        .stat-card {
+            background: var(--color-bg-1);
+            padding: var(--space-16);
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: var(--font-size-2xl);
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .stat-card p {
+            margin: 0;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-12);
+            margin-bottom: var(--space-24);
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: var(--color-bg-2);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            margin-bottom: var(--space-20);
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: var(--space-10) var(--space-16);
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            transition: all var(--duration-normal) var(--ease-standard);
+        }
+
+        .nav-tab.active {
+            background: var(--color-surface);
+            color: var(--color-text);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .referral-item {
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-16);
+            margin-bottom: var(--space-12);
+        }
+
+        .referral-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-12);
+        }
+
+        .referral-details {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            line-height: 1.4;
+        }
+
+        .points-display {
+            background: var(--color-bg-3);
+            padding: var(--space-20);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-bottom: var(--space-20);
+        }
+
+        .points-display h2 {
+            color: var(--color-primary);
+            font-size: var(--font-size-4xl);
+            margin-bottom: var(--space-8);
+        }
+
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-12);
+        }
+
+        .reward-option {
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-16);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .success-message {
+            background: var(--color-bg-3);
+            color: var(--color-success);
+            padding: var(--space-12);
+            border-radius: var(--radius-base);
+            margin-bottom: var(--space-16);
+            text-align: center;
+            font-weight: var(--font-weight-medium);
+        }
+
+        .bilingual-label {
+            display: block;
+            line-height: 1.3;
+        }
+
+        .gujarati-text {
+            font-size: var(--font-size-md);
+            color: var(--color-text-secondary);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .whatsapp-btn:hover {
+            background: #22c55e;
+        }
+        
+        .contact-agent-btn {
+            background: var(--color-info);
+            color: var(--color-btn-primary-text);
+        }
+        
+        .contact-agent-btn:hover {
+            background: var(--color-slate-500);
+        }
+        
+        .faq-item {
+            margin-bottom: var(--space-16);
+        }
+        
+        .faq-question {
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-8);
+            color: var(--color-primary);
+        }
+        
+        .faq-answer {
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+        }
+        
+
+
+        .reward-calculator {
+            background: var(--color-bg-4);
+            padding: var(--space-16);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-20);
+        }
+
+        .policy-type-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-8);
+            margin-bottom: var(--space-16);
+        }
+
+        .policy-type-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-12);
+            background: var(--color-surface);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-sm);
+        }
+
+        .points-value {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-primary);
+        }
+
+        @media (min-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .action-buttons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="app-header">
+            <h1>વીમા રેફરલ | Insurance Referral</h1>
+        </div>
+
+        <!-- Main Content -->
+        <div class="app-content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard-tab" class="tab-content active">
+                <!-- Points Display -->
+                <div class="points-display">
+                    <h2 id="total-points">0</h2>
+                    <p>કુલ પોઈન્ટ્સ | Total Points</p>
+                    <p id="cash-equivalent">₹0 નાણાં | Cash Equivalent</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 id="total-referrals">0</h3>
+                        <p>કુલ રેફરલ<br>Total Referrals</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="pending-referrals">0</h3>
+                        <p>બાકી રેફરલ<br>Pending</p>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn--primary btn--full-width" onclick="showTab('add-referral-tab')">
+                        નવો રેફરલ ઉમેરો<br>Add New Referral
+                    </button>
+                    <button class="btn btn--secondary btn--full-width" onclick="showTab('referrals-tab')">
+                        મારા રેફરલ જુઓ<br>My Referrals
+                    </button>
+                    <button class="btn btn--secondary btn--full-width" onclick="showTab('rewards-tab')">
+                        ઇનામ મેળવો<br>Redeem Rewards
+                    </button>
+                    <button class="btn btn--outline btn--full-width" onclick="showRedemptionHistory()">
+                        રિડેમ્પશન હિસ્ટરી<br>Redemption History
+                    </button>
+
+                    <button class="btn whatsapp-btn btn--full-width" onclick="shareReferralCode()">
+                        WhatsApp થી શેર કરો<br>Share via WhatsApp
+                    </button>
+
+                </div>
+
+                <!-- Reward Calculator -->
+                <div class="reward-calculator">
+                    <h3 style="margin-bottom: var(--space-12);">પોઈન્ટ રેટ | Point Rates</h3>
+                    <div class="policy-type-grid">
+                        <div class="policy-type-item">
+                            <span>Two Wheeler TP</span>
+                            <span class="points-value">50 પોઈન્ટ્સ</span>
+                        </div>
+                        <div class="policy-type-item">
+                            <span>Two Wheeler Comprehensive</span>
+                            <span class="points-value">100 પોઈન્ટ્સ</span>
+                        </div>
+                        <div class="policy-type-item">
+                            <span>Private Car TP</span>
+                            <span class="points-value">200 પોઈન્ટ્સ</span>
+                        </div>
+                        <div class="policy-type-item">
+                            <span>Private Car Comprehensive</span>
+                            <span class="points-value">400 પોઈન્ટ્સ</span>
+                        </div>
+                        <div class="policy-type-item">
+                            <span>Commercial TP</span>
+                            <span class="points-value">400 પોઈન્ટ્સ</span>
+                        </div>
+                        <div class="policy-type-item">
+                            <span>Commercial Comprehensive</span>
+                            <span class="points-value">600 પોઈન્ટ્સ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Referral Tab -->
+            <div id="add-referral-tab" class="tab-content">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" onclick="showTab('dashboard-tab')">હોમ | Home</button>
+                    <button class="nav-tab active">નવો રેફરલ | New Referral</button>
+                </div>
+
+                <div id="success-message" class="success-message hidden">
+                    રેફરલ સફળતાપૂર્વક ઉમેર્યો! | Referral added successfully!
+                </div>
+
+                <form id="referral-form">
+                    <div class="form-group">
+                        <label class="form-label bilingual-label">
+                            Vehicle Registration Number<br>
+                            <span class="gujarati-text">વાહન નોંધણી નંબર</span>
+                        </label>
+                        <input type="text" class="form-control" id="vehicle-number" required 
+                               placeholder="GJ-05-AB-1234">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label bilingual-label">
+                            Vehicle Owner Name<br>
+                            <span class="gujarati-text">વાહન માલિકનું નામ</span>
+                        </label>
+                        <input type="text" class="form-control" id="owner-name" required 
+                               placeholder="રમેશ પટેલ / Ramesh Patel">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label bilingual-label">
+                            Mobile Number<br>
+                            <span class="gujarati-text">મોબાઇલ નંબર</span>
+                        </label>
+                        <input type="tel" class="form-control" id="mobile-number" required 
+                               placeholder="9876543210">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label bilingual-label">
+                            Policy Type<br>
+                            <span class="gujarati-text">પૉલિસી પ્રકાર</span>
+                        </label>
+                        <select class="form-control" id="policy-type" required>
+                            <option value="">Select Policy Type / પૉલિસી પસંદ કરો</option>
+                            <option value="Two Wheeler TP">Two Wheeler Third Party (₹50)</option>
+                            <option value="Two Wheeler Comprehensive">Two Wheeler Comprehensive (₹100)</option>
+                            <option value="Private Car TP">Private Car Third Party (₹200)</option>
+                            <option value="Private Car Comprehensive">Private Car Comprehensive (₹400)</option>
+                            <option value="Commercial TP">Commercial Third Party (₹400)</option>
+                            <option value="Commercial Comprehensive">Commercial Comprehensive (₹600)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label bilingual-label">
+                            Previous Policy Details (Optional)<br>
+                            <span class="gujarati-text">પહેલાની પૉલિસીની વિગતો (વૈકલ્પિક)</span>
+                        </label>
+                        <textarea class="form-control" id="previous-policy" rows="2" 
+                                  placeholder="Insurance company name, policy number, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label bilingual-label">
+                            Your Name (Referrer)<br>
+                            <span class="gujarati-text">તમારું નામ (સંદર્ભ આપનાર)</span>
+                        </label>
+                        <input type="text" class="form-control" id="referrer-name" required 
+                               placeholder="સુરેશ શાહ / Suresh Shah">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label bilingual-label">
+                            Your Mobile Number<br>
+                            <span class="gujarati-text">તમારો મોબાઇલ નંબર</span>
+                        </label>
+                        <input type="tel" class="form-control" id="referrer-mobile" required 
+                               placeholder="9876543211">
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn--primary btn--full-width">
+                            રેફરલ સબમિટ કરો<br>Submit Referral
+                        </button>
+                        <button type="button" class="btn btn--secondary btn--full-width" 
+                                onclick="showTab('dashboard-tab')">
+                            રદ્દ કરો<br>Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- My Referrals Tab -->
+            <div id="referrals-tab" class="tab-content">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" onclick="showTab('dashboard-tab')">હોમ | Home</button>
+                    <button class="nav-tab active">મારા રેફરલ | My Referrals</button>
+                </div>
+
+                <div id="referrals-list">
+                    <!-- Referrals will be populated here -->
+                </div>
+            </div>
+            
+
+
+            <!-- Rewards Tab -->
+            <div id="rewards-tab" class="tab-content">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" onclick="showTab('dashboard-tab')">હોમ | Home</button>
+                    <button class="nav-tab active">ઇનામ | Rewards</button>
+                </div>
+
+                <div class="points-display">
+                    <h2 id="rewards-points">0</h2>
+                    <p>ઉપલબ્ધ પોઈન્ટ્સ | Available Points</p>
+                </div>
+
+                <!-- Redemption Eligibility Check -->
+                <div id="redemption-eligibility" class="card" style="margin-bottom: var(--space-20);">
+                    <div class="card__header">
+                        <h3>🎁 Redeem Rewards | ઇનામ મેળવો</h3>
+                        <p style="margin: var(--space-8) 0 0 0; font-size: var(--font-size-sm); color: var(--color-text-secondary);">Minimum ₹100 | લઘુત્તમ ₹100</p>
+                    </div>
+                    <div class="card__body">
+                        <div id="eligibility-status" style="padding: var(--space-16); background: var(--color-bg-1); border-radius: var(--radius-base); margin-bottom: var(--space-16);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-12);">
+                                <span style="font-weight: var(--font-weight-medium);">Available Points:</span>
+                                <span style="font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); color: var(--color-primary);" id="current-balance">850</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-16);">
+                                <span style="font-weight: var(--font-weight-medium);">Cash Value:</span>
+                                <span style="font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); color: var(--color-success);">₹<span id="cash-value">850</span></span>
+                            </div>
+                            <div id="eligibility-message" style="text-align: center; padding: var(--space-12); background: var(--color-bg-3); border-radius: var(--radius-base);">✅ પાત્ર છો! You're eligible to redeem!</div>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button id="redemption-button" class="btn btn--primary btn--full-width" onclick="openRedemptionForm()">
+                                📱 Submit WhatsApp Request<br>
+                                <span class="gujarati-text">WhatsApp વિનંતી મોકલો</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Privacy & Process Information -->
+                        <div style="background: var(--color-bg-5); padding: var(--space-16); border-radius: var(--radius-base); margin-top: var(--space-16);">
+                            <h4 style="margin: 0 0 var(--space-12) 0; color: var(--color-text); display: flex; align-items: center;">
+                                🔒 WhatsApp Privacy &amp; Security | WhatsApp પ્રાઇવસી અને સુરક્ષા
+                            </h4>
+                            <ul style="margin: 0; padding-left: var(--space-20); font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: 1.6;">
+                                <li><strong>Direct to Agent:</strong> Your bank details go directly to agent's WhatsApp (+91 9408694686)</li>
+                                <li><strong>Private Chat:</strong> Only you and the agent can see the redemption request</li>
+                                <li><strong>Instant Notification:</strong> Agent gets immediate WhatsApp message notification</li>
+                                <li><strong>Secure Processing:</strong> Agent processes payments via official banking channels</li>
+                                <li><strong>સુરક્ષિત:</strong> તમારી બેંક માહિતી સીધી એજન્ટના WhatsApp પર જ મળે છે</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- How to Submit Redemption Request -->
+                <div class="card" style="margin-bottom: var(--space-20);">
+                    <div class="card__header">
+                        <h3>📱 How to Submit WhatsApp Redemption | WhatsApp રિડેમ્પશન કેવી રીતે કરવું</h3>
+                    </div>
+                    <div class="card__body">
+                        <div style="display: grid; gap: var(--space-12);">
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                <div style="background: var(--color-primary); color: var(--color-btn-primary-text); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">1</div>
+                                <div>
+                                    <strong>Click "Submit WhatsApp Request" button</strong><br>
+                                    <span class="gujarati-text">"WhatsApp વિનંતી મોકલો" બટન પર ક્લિક કરો</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                <div style="background: var(--color-primary); color: var(--color-btn-primary-text); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">2</div>
+                                <div>
+                                    <strong>Fill redemption form with bank details</strong><br>
+                                    <span class="gujarati-text">રિડેમ્પશન ફોર્મમાં બેંક વિગતો ભરો</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                <div style="background: var(--color-primary); color: var(--color-btn-primary-text); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">3</div>
+                                <div>
+                                    <strong>WhatsApp opens with pre-formatted message</strong><br>
+                                    <span class="gujarati-text">WhatsApp તૈયાર મેસેજ સાથે ખુલશે</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                <div style="background: var(--color-primary); color: var(--color-btn-primary-text); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">4</div>
+                                <div>
+                                    <strong>Send message directly to agent (+91 9408694686)</strong><br>
+                                    <span class="gujarati-text">મેસેજ સીધો એજન્ટને મોકલો (+91 9408694686)</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                <div style="background: var(--color-success); color: var(--color-btn-primary-text); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">5</div>
+                                <div>
+                                    <strong>Agent processes payment &amp; sends confirmation</strong><br>
+                                    <span class="gujarati-text">એજન્ટ પેમેન્ટ પ્રોસેસ કરશે અને કન્ફર્મેશન આપશે</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instructions for Insurance Agent -->
+                <div class="card">
+                    <div class="card__header">
+                        <h3>🏢 For Insurance Agent | વીમા એજન્ટ માટે</h3>
+                    </div>
+                    <div class="card__body">
+                        <div style="background: var(--color-bg-6); padding: var(--space-16); border-radius: var(--radius-base); margin-bottom: var(--space-16);">
+                            <h4 style="margin: 0 0 var(--space-12) 0; color: var(--color-text);">📱 WhatsApp Business Setup | WhatsApp બિઝનેસ સેટઅપ</h4>
+                            <div style="display: grid; gap: var(--space-12);">
+                                <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                    <div style="background: var(--color-orange-500); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">1</div>
+                                    <div style="font-size: var(--font-size-sm);">
+                                        <strong>WhatsApp Business Number:</strong> Ensure your WhatsApp Business is active on +91 9408694686
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                    <div style="background: var(--color-orange-500); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">2</div>
+                                    <div style="font-size: var(--font-size-sm);">
+                                        <strong>Enable Notifications:</strong> Keep WhatsApp notifications ON to receive instant redemption requests
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                    <div style="background: var(--color-orange-500); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">3</div>
+                                    <div style="font-size: var(--font-size-sm);">
+                                        <strong>Message Format:</strong> Users will send structured messages with all bank details and redemption amounts
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                    <div style="background: var(--color-orange-500); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">4</div>
+                                    <div style="font-size: var(--font-size-sm);">
+                                        <strong>Process Requests:</strong> Verify details, process payments via NEFT/RTGS, and send confirmation back on WhatsApp
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--color-bg-2); padding: var(--space-16); border-radius: var(--radius-base);">
+                            <h4 style="margin: 0 0 var(--space-8) 0; color: var(--color-text);">💳 Payment Processing Guidelines | પેમેન્ટ પ્રોસેસિંગ માર્ગદર્શિકા</h4>
+                            <ul style="margin: 0; padding-left: var(--space-20); font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: 1.6;">
+                                <li><strong>Bank Transfer:</strong> Use NEFT/RTGS for secure transfers (2-3 working days)</li>
+                                <li><strong>UPI Payments:</strong> For instant transfers when customer prefers (instant to 24 hours)</li>
+                                <li><strong>Minimum redemption:</strong> ₹100 per request</li>
+                                <li><strong>Maximum per day:</strong> ₹10,000 (adjust based on your business policy)</li>
+                                <li><strong>Confirmation:</strong> Always send WhatsApp message with transaction ID and details</li>
+                                <li><strong>Record Keeping:</strong> Maintain proper records of all transactions for accounting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Profile & Referral Info -->
+                <div class="card" style="margin-top: var(--space-20);">
+                    <div class="card__header">
+                        <h3>My Referral Details | મારી રેફરલ વિગતો</h3>
+                    </div>
+                    <div class="card__body">
+                        <div style="display: grid; gap: var(--space-12);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-12); background: var(--color-bg-1); border-radius: var(--radius-base);">
+                                <span style="font-weight: var(--font-weight-medium);">Referral Code:</span>
+                                <span style="font-family: var(--font-family-mono); font-weight: var(--font-weight-bold); color: var(--color-primary);" id="user-referral-code"></span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-12); background: var(--color-bg-2); border-radius: var(--radius-base);">
+                                <span style="font-weight: var(--font-weight-medium);">Name | નામ:</span>
+                                <span id="user-name-display"></span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-12); background: var(--color-bg-3); border-radius: var(--radius-base);">
+                                <span style="font-weight: var(--font-weight-medium);">Mobile | મોબાઇલ:</span>
+                                <span id="user-mobile-display"></span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: var(--space-16); text-align: center;">
+                            <p style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-12);">
+                                તમારા રેફરલ કોડ વડે લોકોને આમંત્રિત કરો<br>
+                                Invite people using your referral code
+                            </p>
+                            <div class="action-buttons" style="grid-template-columns: 1fr 1fr; gap: var(--space-8);">
+                                <button class="btn whatsapp-btn" onclick="shareReferralCode()" style="font-size: var(--font-size-sm); padding: var(--space-8) var(--space-12);">
+                                    WhatsApp
+                                </button>
+                                <button class="btn contact-agent-btn" onclick="contactAgent()" style="font-size: var(--font-size-sm); padding: var(--space-8) var(--space-12);">
+                                    📞 Agent
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Section -->
+                <div class="card" style="margin-top: var(--space-20);">
+                    <div class="card__header">
+                        <h3>❓ Frequently Asked Questions | વારંવાર પૂછાતા પ્રશ્નો</h3>
+                    </div>
+                    <div class="card__body">
+                        <div style="display: grid; gap: var(--space-16);">
+                            <div style="background: var(--color-bg-1); padding: var(--space-16); border-radius: var(--radius-base);">
+                                <h4 style="margin: 0 0 var(--space-8) 0; color: var(--color-primary);">🔒 Q: Will my bank details be visible publicly?</h4>
+                                <p style="margin: 0; font-size: var(--font-size-sm); line-height: 1.6;">
+                                    <strong>A: No, absolutely not!</strong> Your bank details are completely private and secure:
+                                    <br>• Only you and the insurance agent can see the WhatsApp message
+                                    <br>• WhatsApp uses end-to-end encryption for all messages
+                                    <br>• No other users can see your redemption requests
+                                    <br>• Message goes directly to agent's personal WhatsApp (+91 9408694686)
+                                    <br><br>
+                                    <span class="gujarati-text"><strong>ઉત્તર:</strong> નહીં, બિલકુલ નહીં! તમારી બેંક માહિતી પૂર્ણ રીતે સુરક્ષિત છે અને ફક્ત વીમા એજન્ટને જ WhatsApp પર મળે છે।</span>
+                                </p>
+                            </div>
+                            
+                            <div style="background: var(--color-bg-3); padding: var(--space-16); border-radius: var(--radius-base);">
+                                <h4 style="margin: 0 0 var(--space-8) 0; color: var(--color-success);">📱 Q: Where does my submission go after I send WhatsApp message?</h4>
+                                <p style="margin: 0; font-size: var(--font-size-sm); line-height: 1.6;">
+                                    <strong>A: Direct to insurance agent via WhatsApp!</strong> Here's the exact flow:
+                                    <br>• Your message goes directly to agent's WhatsApp (+91 9408694686)
+                                    <br>• Agent gets instant WhatsApp notification
+                                    <br>• Agent reviews your request manually
+                                    <br>• Agent processes payment via bank transfer (NEFT/RTGS)
+                                    <br>• Agent sends you WhatsApp confirmation with transaction details
+                                    <br><br>
+                                    <span class="gujarati-text"><strong>ઉત્તર:</strong> તમારી વિનંતી સીધી વીમા એજન્ટને WhatsApp પર મળે છે! એજન્ટ તમારી વિનંતી ચેક કરે છે અને બેંક ટ્રાન્સફર કરે છે।</span>
+                                </p>
+                            </div>
+                            
+                            <div style="background: var(--color-bg-2); padding: var(--space-16); border-radius: var(--radius-base);">
+                                <h4 style="margin: 0 0 var(--space-8) 0; color: var(--color-warning);">📁 Q: How does the agent manage redemption requests?</h4>
+                                <p style="margin: 0; font-size: var(--font-size-sm); line-height: 1.6;">
+                                    <strong>A: Through WhatsApp Business directly:</strong>
+                                    <br>• Agent receives WhatsApp message instantly when you send
+                                    <br>• All requests appear in agent's WhatsApp chat with you
+                                    <br>• Agent manually verifies your points balance
+                                    <br>• Agent processes payment through their bank account
+                                    <br>• Agent sends you WhatsApp confirmation with transaction ID
+                                    <br><br>
+                                    <span class="gujarati-text"><strong>એજન્ટ માટે:</strong> WhatsApp પર તુરંત વિનંતી મળે છે અને સીધી ચેટમાં જવાબ આપી શકે છે।</span>
+                                </p>
+                            </div>
+                            
+                            <div style="background: var(--color-bg-4); padding: var(--space-16); border-radius: var(--radius-base);">
+                                <h4 style="margin: 0 0 var(--space-8) 0; color: var(--color-error);">⚠️ Q: Is my data safe with WhatsApp?</h4>
+                                <p style="margin: 0; font-size: var(--font-size-sm); line-height: 1.6;">
+                                    <strong>A: Yes, completely safe!</strong> WhatsApp provides enterprise-level security:
+                                    <br>• All messages use end-to-end encryption
+                                    <br>• WhatsApp's robust security infrastructure
+                                    <br>• Only you and the insurance agent can see messages
+                                    <br>• No data is stored on this website or visible to other users
+                                    <br>• Messages are private between you and agent only
+                                    <br><br>
+                                    <span class="gujarati-text"><strong>સુરક્ષા:</strong> WhatsApp સુરક્ષિત છે! તમારી માહિતી ફક્ત એજન્ટને જ મળે છે, અન્ય કોઈને નહીં।</span>
+                                </p>
+                            </div>
+                            
+                            <div style="background: var(--color-bg-8); padding: var(--space-16); border-radius: var(--radius-base);">
+                                <h4 style="margin: 0 0 var(--space-8) 0; color: var(--color-info);">🕰️ Q: How long does redemption processing take?</h4>
+                                <p style="margin: 0; font-size: var(--font-size-sm); line-height: 1.6;">
+                                    <strong>A: Standard processing timeline:</strong>
+                                    <br>• <strong>WhatsApp Message:</strong> Instant (agent gets immediate notification)
+                                    <br>• <strong>Agent Review:</strong> Within 4-6 hours during business hours
+                                    <br>• <strong>Bank Transfer:</strong> 2-3 working days via NEFT/RTGS
+                                    <br>• <strong>WhatsApp Confirmation:</strong> Sent immediately after transfer
+                                    <br>• <strong>Urgent requests:</strong> Call agent directly at +91 9408694686
+                                    <br><br>
+                                    <span class="gujarati-text"><strong>સમય:</strong> 2-3 કામકાજના દિવસોમાં પૈસા મળી જશે। તાત્કાલિક જરૂર હોય તો એજન્ટને ફોન કરો।</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Application State
+        let appState = {
+            referrals: [
+                {
+                    id: 1,
+                    vehicleNumber: "GJ-05-AB-1234",
+                    ownerName: "રમેશ પટેલ",
+                    mobile: "9876543210",
+                    referrerName: "સુરેશ શાહ",
+                    referrerMobile: "9876543211",
+                    policyType: "Two Wheeler Comprehensive",
+                    status: "Completed",
+                    pointsEarned: 100,
+                    date: "2025-10-01",
+                    previousPolicy: ""
+                },
+                {
+                    id: 2,
+                    vehicleNumber: "GJ-05-CD-5678",
+                    ownerName: "પ્રિયા મહેતા",
+                    mobile: "9876543212",
+                    referrerName: "અનિલ શાહ",
+                    referrerMobile: "9876543213",
+                    policyType: "Private Car Comprehensive",
+                    status: "Completed",
+                    pointsEarned: 400,
+                    date: "2025-10-05",
+                    previousPolicy: "HDFC ERGO - Policy ended"
+                },
+                {
+                    id: 3,
+                    vehicleNumber: "GJ-05-EF-9012",
+                    ownerName: "વિકાસ જોશી",
+                    mobile: "9876543214",
+                    referrerName: "રાજ પટેલ",
+                    referrerMobile: "9876543215",
+                    policyType: "Commercial Comprehensive",
+                    status: "Pending",
+                    pointsEarned: 0,
+                    date: "2025-10-10",
+                    previousPolicy: ""
+                }
+            ],
+            totalPoints: 850,
+            nextId: 4,
+            userProfile: {
+                name: "તમારું નામ",
+                mobile: "તમારો નંબર",
+                referralCode: "REF" + Math.random().toString(36).substr(2, 6).toUpperCase()
+            }
+        };
+
+        // Points mapping
+        const pointsMapping = {
+            "Two Wheeler TP": 50,
+            "Two Wheeler Comprehensive": 100,
+            "Private Car TP": 200,
+            "Private Car Comprehensive": 400,
+            "Commercial TP": 400,
+            "Commercial Comprehensive": 600
+        };
+        
+        // App configuration
+        const appConfig = {
+            minimumRedemption: 100,
+            pointToRupeeRate: 1,
+            agentWhatsApp: '919408694686',
+            agentContact: {
+                name: 'Insurance Agent',
+                mobile: '+91-9408694686',
+                whatsapp: 'https://wa.me/919408694686'
+            }
+        };
+        
+        // Local redemption history storage
+        let redemptionHistory = [];
+
+        // Initialize app
+        function initApp() {
+            updateDashboard();
+            renderReferrals();
+            updateUserProfile();
+        }
+        
+        // Update user profile display
+        function updateUserProfile() {
+            document.getElementById('user-referral-code').textContent = appState.userProfile.referralCode;
+            document.getElementById('user-name-display').textContent = appState.userProfile.name;
+            document.getElementById('user-mobile-display').textContent = appState.userProfile.mobile;
+        }
+
+        // Show tab function
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update dashboard when returning to it
+            if (tabId === 'dashboard-tab') {
+                updateDashboard();
+            } else if (tabId === 'referrals-tab') {
+                renderReferrals();
+            } else if (tabId === 'rewards-tab') {
+                updateRewardsTab();
+            }
+        }
+
+        // Update dashboard statistics
+        function updateDashboard() {
+            const totalReferrals = appState.referrals.length;
+            const pendingReferrals = appState.referrals.filter(r => r.status === 'Pending').length;
+            const completedReferrals = appState.referrals.filter(r => r.status === 'Completed');
+            
+            // Calculate total points from completed referrals
+            appState.totalPoints = completedReferrals.reduce((sum, referral) => {
+                return sum + referral.pointsEarned;
+            }, 0);
+
+            document.getElementById('total-points').textContent = appState.totalPoints;
+            document.getElementById('cash-equivalent').textContent = `₹${appState.totalPoints} નાણાં | Cash Equivalent`;
+            document.getElementById('total-referrals').textContent = totalReferrals;
+            document.getElementById('pending-referrals').textContent = pendingReferrals;
+        }
+
+        // Handle form submission
+        document.getElementById('referral-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            setButtonLoading(submitBtn, true);
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                const formData = {
+                    id: appState.nextId++,
+                    vehicleNumber: document.getElementById('vehicle-number').value,
+                    ownerName: document.getElementById('owner-name').value,
+                    mobile: document.getElementById('mobile-number').value,
+                    policyType: document.getElementById('policy-type').value,
+                    previousPolicy: document.getElementById('previous-policy').value,
+                    referrerName: document.getElementById('referrer-name').value,
+                    referrerMobile: document.getElementById('referrer-mobile').value,
+                    status: 'Pending',
+                    pointsEarned: 0,
+                    date: new Date().toISOString().split('T')[0]
+                };
+
+                // Add to referrals
+                appState.referrals.push(formData);
+                
+                // Update user profile if first time
+                if (appState.userProfile.name === "તમારું નામ") {
+                    appState.userProfile.name = formData.referrerName;
+                    appState.userProfile.mobile = formData.referrerMobile;
+                }
+                
+                setButtonLoading(submitBtn, false);
+                
+                // Show success notification
+                showNotification('રેફરલ સફળતાપૂર્વક ઉમેર્યો! Referral added successfully!', 'success');
+                
+                // Reset form
+                this.reset();
+                
+                // Return to dashboard after short delay
+                setTimeout(() => {
+                    showTab('dashboard-tab');
+                }, 1500);
+            }, 1000);
+        });
+
+        // Render referrals list
+        function renderReferrals() {
+            const container = document.getElementById('referrals-list');
+            
+            if (appState.referrals.length === 0) {
+                container.innerHTML = `
+                    <div class="card">
+                        <div class="card__body" style="text-align: center;">
+                            <p>કોઈ રેફરલ નથી<br>No referrals yet</p>
+                            <button class="btn btn--primary" onclick="showTab('add-referral-tab')">
+                                પ્રથમ રેફરલ ઉમેરો<br>Add First Referral
+                            </button>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = appState.referrals.map(referral => {
+                const statusClass = referral.status === 'Completed' ? 'status--success' : 
+                                  referral.status === 'Pending' ? 'status--warning' : 'status--error';
+                                  
+                return `
+                    <div class="referral-item">
+                        <div class="referral-header">
+                            <h4>${referral.vehicleNumber}</h4>
+                            <span class="status ${statusClass}">${referral.status}</span>
+                        </div>
+                        <div class="referral-details">
+                            <p><strong>Owner:</strong> ${referral.ownerName}</p>
+                            <p><strong>Mobile:</strong> ${referral.mobile}</p>
+                            <p><strong>Policy Type:</strong> ${referral.policyType}</p>
+                            <p><strong>Referrer:</strong> ${referral.referrerName}</p>
+                            <p><strong>Date:</strong> ${referral.date}</p>
+                            <p><strong>Points:</strong> ${referral.pointsEarned} પોઈન્ટ્સ</p>
+                            ${referral.status === 'Pending' ? `
+                                <div style="margin-top: var(--space-12);">
+                                    <button class="btn btn--primary btn--sm" onclick="completeReferral(${referral.id})">
+                                        પૂર્ણ કરો | Mark Complete
+                                    </button>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Complete referral
+        function completeReferral(id) {
+            const referral = appState.referrals.find(r => r.id === id);
+            if (referral) {
+                const button = event.target;
+                setButtonLoading(button, true);
+                
+                // Simulate processing delay
+                setTimeout(() => {
+                    referral.status = 'Completed';
+                    referral.pointsEarned = pointsMapping[referral.policyType] || 0;
+                    
+                    setButtonLoading(button, false);
+                    
+                    // Show success notification
+                    showNotification(`રેફરલ પૂર્ણ! Referral completed!\n+${referral.pointsEarned} points earned!`, 'success');
+                    
+                    renderReferrals();
+                    updateDashboard();
+                }, 1000);
+            }
+        }
+
+        // Update rewards tab
+        function updateRewardsTab() {
+            const currentPoints = appState.totalPoints;
+            document.getElementById('rewards-points').textContent = currentPoints;
+            document.getElementById('current-balance').textContent = currentPoints;
+            document.getElementById('cash-value').textContent = currentPoints;
+            
+            // Update eligibility status
+            const eligibilityMessage = document.getElementById('eligibility-message');
+            const redemptionButton = document.getElementById('redemption-button');
+            
+            if (currentPoints >= 100) {
+                eligibilityMessage.innerHTML = '✅ પાત્ર છો! You\'re eligible to redeem!';
+                eligibilityMessage.style.background = 'var(--color-bg-3)';
+                eligibilityMessage.style.color = 'var(--color-success)';
+                redemptionButton.disabled = false;
+                redemptionButton.style.opacity = '1';
+            } else {
+                eligibilityMessage.innerHTML = `❌ ${100 - currentPoints} વધુ પોઇન્ટ્સ જરૂરી! Need ${100 - currentPoints} more points!`;
+                eligibilityMessage.style.background = 'var(--color-bg-4)';
+                eligibilityMessage.style.color = 'var(--color-warning)';
+                redemptionButton.disabled = true;
+                redemptionButton.style.opacity = '0.5';
+            }
+        }
+        
+        // Open redemption form (WhatsApp Integration)
+        function openRedemptionForm() {
+            const currentPoints = appState.totalPoints;
+            
+            if (currentPoints < 100) {
+                showNotification('લઘુત્તમ 100 પોઇન્ટ્સ જરૂરી છે! Minimum 100 points required!', 'warning');
+                return;
+            }
+            
+            // Show redemption form
+            showRedemptionForm();
+        }
+        
+        // Show redemption form
+        function showRedemptionForm() {
+            const formHtml = `
+                <div id="redemption-form-overlay" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: var(--space-16);">
+                    <div style="background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-24); max-width: 400px; width: 100%; max-height: 90vh; overflow-y: auto;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-20);">
+                            <h3 style="margin: 0; color: var(--color-primary);">🎁 Redeem Rewards</h3>
+                            <button onclick="closeRedemptionForm()" style="background: none; border: none; font-size: var(--font-size-xl); cursor: pointer; color: var(--color-text-secondary);">×</button>
+                        </div>
+                        
+                        <div style="background: var(--color-bg-1); padding: var(--space-16); border-radius: var(--radius-base); margin-bottom: var(--space-20); text-align: center;">
+                            <div style="font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-8);">${appState.totalPoints}</div>
+                            <div style="color: var(--color-text-secondary); font-size: var(--font-size-sm);">Available Points (₹${appState.totalPoints})</div>
+                        </div>
+                        
+                        <form id="whatsapp-redemption-form">
+                            <div class="form-group">
+                                <label class="form-label bilingual-label">
+                                    Bank Account Number<br>
+                                    <span class="gujarati-text">બેંક ખાતા નંબર</span>
+                                </label>
+                                <input type="text" class="form-control" id="bank-account" required placeholder="1234567890123456">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label bilingual-label">
+                                    IFSC Code<br>
+                                    <span class="gujarati-text">IFSC કોડ</span>
+                                </label>
+                                <input type="text" class="form-control" id="ifsc-code" required placeholder="SBIN0001234">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label bilingual-label">
+                                    Account Holder Name<br>
+                                    <span class="gujarati-text">ખાતાધારકનું નામ</span>
+                                </label>
+                                <input type="text" class="form-control" id="account-holder" required placeholder="સુરેશ પટેલ">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label bilingual-label">
+                                    Redeem Amount (₹)<br>
+                                    <span class="gujarati-text">રિડીમ રકમ (₹)</span>
+                                </label>
+                                <input type="number" class="form-control" id="redeem-amount" required min="100" max="${appState.totalPoints}" placeholder="500">
+                                <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: var(--space-4);">Minimum: ₹100 | Maximum: ₹${appState.totalPoints}</div>
+                            </div>
+                            
+                            <div class="action-buttons">
+                                <button type="submit" class="btn whatsapp-btn btn--full-width">
+                                    📱 Send to WhatsApp<br>
+                                    <span class="gujarati-text">વ્હોટ્સએપ પર મોકલો</span>
+                                </button>
+                                <button type="button" class="btn btn--secondary btn--full-width" onclick="closeRedemptionForm()">
+                                    રદ્દ કરો | Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', formHtml);
+            
+            // Add form submit handler
+            document.getElementById('whatsapp-redemption-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                sendWhatsAppRedemptionRequest();
+            });
+        }
+        
+        // Close redemption form
+        function closeRedemptionForm() {
+            const overlay = document.getElementById('redemption-form-overlay');
+            if (overlay) {
+                overlay.remove();
+            }
+        }
+        
+        // Send WhatsApp redemption request
+        function sendWhatsAppRedemptionRequest() {
+            const bankAccount = document.getElementById('bank-account').value;
+            const ifscCode = document.getElementById('ifsc-code').value;
+            const accountHolder = document.getElementById('account-holder').value;
+            const redeemAmount = document.getElementById('redeem-amount').value;
+            
+            // Validate redemption amount
+            if (parseInt(redeemAmount) > appState.totalPoints) {
+                showNotification('રકમ ઉપલબ્ધ પોઇન્ટ્સ કરતાં વધારે છે! Amount exceeds available points!', 'error');
+                return;
+            }
+            
+            if (parseInt(redeemAmount) < 100) {
+                showNotification('લઘુત્તમ રકમ ₹100 છે! Minimum amount is ₹100!', 'error');
+                return;
+            }
+            
+            // Create WhatsApp message
+            const message = generateWhatsAppRedemptionMessage({
+                name: appState.userProfile.name,
+                mobile: appState.userProfile.mobile,
+                currentPoints: appState.totalPoints,
+                redeemAmount: redeemAmount,
+                bankAccount: bankAccount,
+                ifscCode: ifscCode,
+                accountHolder: accountHolder,
+                date: new Date().toLocaleDateString('en-IN')
+            });
+            
+            const whatsappUrl = `https://wa.me/${appConfig.agentWhatsApp}?text=${encodeURIComponent(message)}`;
+            
+            // Add to redemption history
+            const redemptionRequest = {
+                id: Date.now(),
+                amount: parseInt(redeemAmount),
+                bankAccount: bankAccount.slice(-4),
+                ifscCode: ifscCode,
+                accountHolder: accountHolder,
+                status: 'Pending',
+                date: new Date().toLocaleDateString('en-IN'),
+                method: 'WhatsApp'
+            };
+            
+            redemptionHistory.unshift(redemptionRequest);
+            
+            // Show success message and open WhatsApp
+            showNotification('✅ રિડેમ્પશન વિનંતી તૈયાર છે! Redemption request ready!\n\nWhatsApp opening with your request...', 'success');
+            
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                closeRedemptionForm();
+                
+                // Deduct points from balance (temporary until agent confirms)
+                appState.totalPoints -= parseInt(redeemAmount);
+                updateDashboard();
+                updateRewardsTab();
+                
+                showNotification(`📱 WhatsApp message sent!\n\n✅ Request for ₹${redeemAmount} sent to agent\n✅ Agent will contact you within 4-6 hours\n✅ Payment processed in 2-3 working days`, 'success');
+            }, 1000);
+        }
+        
+        // Generate WhatsApp redemption message
+        function generateWhatsAppRedemptionMessage(data) {
+            return `🏦 REDEMPTION REQUEST
+📝 Name: ${data.name}
+📱 Mobile: ${data.mobile}
+💰 Points: ${data.currentPoints}
+💳 Redeem Amount: ₹${data.redeemAmount}
+🏦 Bank Account: ${data.bankAccount}
+🏦 IFSC Code: ${data.ifscCode}
+👤 Account Holder: ${data.accountHolder}
+📅 Date: ${data.date}
+
+Please process this redemption request.`;
+        }
+        
+        // Sample redemption tracking (for demonstration)
+        // In real implementation, this would be managed by the insurance agent
+        function showRedemptionGuidance() {
+            const guidance = `
+                <div style="text-align: center; padding: var(--space-20); background: var(--color-bg-1); border-radius: var(--radius-lg);">
+                    <h4 style="margin: 0 0 var(--space-12) 0;">📊 Track Your Redemption Requests</h4>
+                    <p style="color: var(--color-text-secondary); font-size: var(--font-size-sm); line-height: 1.6;">
+                        After submitting your redemption request through Google Forms:<br><br>
+                        • The insurance agent will receive your request via email<br>
+                        • Processing typically takes 2-3 business days<br>
+                        • You will receive WhatsApp confirmation with transaction details<br>
+                        • For urgent requests, contact the agent directly<br><br>
+                        <strong>રિડેમ્પશન ત્વરિત પ્રોસેસિંગ માટે એજન્ટ સાથે WhatsApp પર સંપર્ક કરો</strong>
+                    </p>
+                </div>
+            `;
+            return guidance;
+        }
+
+        // Contact agent function
+        function contactAgent() {
+            const message = `📞 Insurance Referral Support | વીમા રેફરલ સહાય\n\n` +
+                          `Hello! I need assistance with my insurance referral account.\n\n` +
+                          `📄 My Account Details:\n` +
+                          `Name: ${appState.userProfile.name}\n` +
+                          `Mobile: ${appState.userProfile.mobile}\n` +
+                          `Referral Code: ${appState.userProfile.referralCode}\n` +
+                          `Current Points: ${appState.totalPoints} (₹${appState.totalPoints})\n\n` +
+                          `📝 Query: Please help me with:\n` +
+                          `[ ] Redemption request status\n` +
+                          `[ ] Points calculation\n` +
+                          `[ ] Technical support\n` +
+                          `[ ] Other: ________________\n\n` +
+                          `Thank you for your support! | ધન્યવાદ!`;
+            
+            const whatsappUrl = `https://wa.me/${appConfig.agentWhatsApp}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        // Show redemption history (local tracking)
+        function showRedemptionHistory() {
+            if (redemptionHistory.length === 0) {
+                showNotification('કોઈ રિડેમ્પશન હિસ્ટરી નથી | No redemption history yet', 'info');
+                return;
+            }
+            
+            let historyHtml = '<h4>Redemption History | રિડેમ્પશન હિસ્ટરી</h4>';
+            redemptionHistory.forEach(item => {
+                const statusClass = item.status === 'Completed' ? 'status--success' : 'status--warning';
+                historyHtml += `
+                    <div style="background: var(--color-surface); border: 1px solid var(--color-card-border); border-radius: var(--radius-base); padding: var(--space-12); margin-bottom: var(--space-8);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-8);">
+                            <strong>₹${item.amount}</strong>
+                            <span class="status ${statusClass}">${item.status}</span>
+                        </div>
+                        <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                            <p>Bank: ****${item.bankAccount} | ${item.ifsc}</p>
+                            <p>Date: ${item.date} | Method: ${item.method}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            showNotification(historyHtml, 'info');
+        }
+        
+
+
+        // Share referral code
+        function shareReferralCode() {
+            const referralCode = appState.userProfile.referralCode;
+            const message = `🚗 Vehicle Insurance Referral / વાહન વીમા રેફરલ\n\n` +
+                          `મારા દ્વારા વાહન વીમા કરાવો અને પૈસા બચાવો!\n` +
+                          `Get vehicle insurance through me and save money!\n\n` +
+                          `💰 Earn Points System:\n` +
+                          `🛵 Two Wheeler: 50-100 points\n` +
+                          `🚗 Car Insurance: 200-400 points\n` +
+                          `🚛 Commercial: 400-600 points\n\n` +
+                          `✅ Best rates / શ્રેષ્ઠ દરો\n` +
+                          `✅ Quick service / ઝડપી સેવા\n` +
+                          `✅ All vehicle types / બધા વાહન પ્રકારો\n` +
+                          `✅ 1 Point = ₹1 Cash / 1 પોઈન્ટ = ₹1\n\n` +
+                          `Referral Code: ${referralCode}\n\n` +
+                          `Contact: ${appState.userProfile.name}\n` +
+                          `Mobile: ${appState.userProfile.mobile}`;
+            
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+
+        
+        // Show notification
+        function showNotification(message, type = 'success') {
+            // Remove existing notification
+            const existing = document.querySelector('.notification');
+            if (existing) {
+                existing.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = `notification notification--${type}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+        
+        // Add loading state to buttons
+        function setButtonLoading(button, loading = true) {
+            if (loading) {
+                button.classList.add('btn--loading');
+                button.disabled = true;
+            } else {
+                button.classList.remove('btn--loading');
+                button.disabled = false;
+            }
+        }
+
+
+        
+        // Add some sample completed referrals for demo
+        function addSampleData() {
+            // This ensures we have some demo data to show the working system
+            if (appState.referrals.length < 5) {
+                const sampleReferrals = [
+                    {
+                        id: appState.nextId++,
+                        vehicleNumber: "GJ-05-XY-7890",
+                        ownerName: "મીરા શાહ",
+                        mobile: "9876543216",
+                        referrerName: "તમારું નામ",
+                        referrerMobile: "તમારો નંબર",
+                        policyType: "Two Wheeler TP",
+                        status: "Completed",
+                        pointsEarned: 50,
+                        date: "2025-09-20",
+                        previousPolicy: ""
+                    },
+                    {
+                        id: appState.nextId++,
+                        vehicleNumber: "GJ-05-PQ-3456",
+                        ownerName: "કિરણ પટેલ",
+                        mobile: "9876543217",
+                        referrerName: "તમારું નામ",
+                        referrerMobile: "તમારો નંબર",
+                        policyType: "Commercial TP",
+                        status: "Completed",
+                        pointsEarned: 400,
+                        date: "2025-09-25",
+                        previousPolicy: ""
+                    }
+                ];
+                appState.referrals.push(...sampleReferrals);
+            }
+        }
+        
+        // Call sample data function on load (for demo purposes)
+        window.addEventListener('load', () => {
+            addSampleData();
+            initApp();
+        });
+    </script>
+</body>
+</html>
