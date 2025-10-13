@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle Insurance Referral App | વાહન વીમા રેફરલ એપ</title>
+    <title>Navkar Insurance Referral System | નવકાર વીમા રેફરલ સિસ્ટમ</title>
     <style>
         /* Perplexity Design System */
         :root {
@@ -709,7 +709,7 @@
     <div class="app-container">
         <!-- Header -->
         <div class="app-header">
-            <h1>વીમા રેફરલ | Insurance Referral</h1>
+            <h1>Navkar Insurance Referral System<br><span style="font-size: var(--font-size-lg); font-weight: var(--font-weight-normal);">નવકાર વીમા રેફરલ સિસ્ટમ</span></h1>
         </div>
 
         <!-- Main Content -->
@@ -752,6 +752,14 @@
 
                     <button class="btn whatsapp-btn btn--full-width" onclick="shareReferralCode()">
                         WhatsApp થી શેર કરો<br>Share via WhatsApp
+                    </button>
+                    
+                    <button class="btn btn--secondary btn--full-width" onclick="showTab('terms-tab')">
+                        નિયમો અને શરતો<br>Terms &amp; Conditions
+                    </button>
+                    
+                    <button class="btn btn--secondary btn--full-width" onclick="showTab('privacy-tab')">
+                        ગોપનીયતા નીતિ<br>Privacy Policy
                     </button>
 
                 </div>
@@ -895,6 +903,393 @@
             </div>
             
 
+
+            <!-- Terms & Conditions Tab -->
+            <div id="terms-tab" class="tab-content">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" onclick="showTab('dashboard-tab')">હોમ | Home</button>
+                    <button class="nav-tab active">નિયમો | Terms</button>
+                </div>
+
+                <div class="card" style="margin-bottom: var(--space-20);">
+                    <div class="card__header">
+                        <h2 style="text-align: center; color: var(--color-primary);">📜 Terms &amp; Conditions | નિયમો અને શરતો</h2>
+                        <p style="text-align: center; margin: var(--space-8) 0 0 0; font-size: var(--font-size-sm); color: var(--color-text-secondary);">Effective Date: October 13, 2025 | પ્રભાવી તારીખ: ૧૩ ઑક્ટોબર, ૨૦૨૵</p>
+                    </div>
+                    <div class="card__body">
+                        <!-- Eligibility Requirements -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);👥 Eligibility Requirements | પાત્રતાની જરૂરિયાતો</h3>
+                            <div style="background: var(--color-bg-1); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <ul style="margin: 0; padding-left: var(--space-20);">
+                                    <li><strong>Bank Account Mandatory:</strong> You must have a valid Indian bank account to redeem rewards</li>
+                                    <li><strong>Age Requirement:</strong> Must be 18 years or older</li>
+                                    <li><strong>Indian Resident:</strong> Only Indian residents are eligible for this program</li>
+                                    <li><strong>Valid Documents:</strong> Must provide accurate bank details and contact information</li>
+                                </ul>
+                                <div style="margin-top: var(--space-12); font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                                    <strong>ગુજરાતી:</strong> રિવોર્ડ મેળવવા માટે વૈધ બેંક ખાતું હોવું અનિવાર્ય છે. ૧૩ વર્ષ તેમજ વધુ ઉમર હોવી જોઈએ.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Referral Process -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">🔄 Referral Process &amp; Guidelines | રેફરલ પ્રક્રિયા અને માર્ગદર્શન</h3>
+                            <div style="background: var(--color-bg-2); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <ul style="margin: 0; padding-left: var(--space-20);">
+                                    <li><strong>Valid Referrals Only:</strong> Points awarded only for completed and valid insurance policies</li>
+                                    <li><strong>Accurate Information:</strong> Referrer must provide correct vehicle and customer details</li>
+                                    <li><strong>Policy Completion:</strong> Customer must complete the insurance purchase process</li>
+                                    <li><strong>No Duplicate Claims:</strong> Same customer cannot be referred multiple times for same vehicle</li>
+                                    <li><strong>Ethical Practices:</strong> No misleading information or false promises to customers</li>
+                                </ul>
+                                <div style="margin-top: var(--space-12); font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                                    <strong>ગુજરાતી:</strong> ફક્ત વૈધ રેફરલ માટે જ પોઇન્ટ્સ મળશે. ગ્રાહકે વીમે માટે ખરીદી પૂરી કરવી જરૂરી છે.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Point System & Redemption -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">💰 Point System &amp; Redemption Rules | પોઇન્ટ સિસ્ટમ અને રિડેમ્પશન નિયમો</h3>
+                            <div style="background: var(--color-bg-3); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <div style="margin-bottom: var(--space-16);">
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">Point Values | પોઇન્ટ મૂલ્યો:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20); font-size: var(--font-size-sm);">
+                                        <li>Two Wheeler TP: 50 Points (₹50)</li>
+                                        <li>Two Wheeler Comprehensive: 100 Points (₹100)</li>
+                                        <li>Private Car TP: 200 Points (₹200)</li>
+                                        <li>Private Car Comprehensive: 400 Points (₹400)</li>
+                                        <li>Commercial TP: 400 Points (₹400)</li>
+                                        <li>Commercial Comprehensive: 600 Points (₹600)</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">Redemption Terms | રિડેમ્પશન શરતો:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20);">
+                                        <li><strong>Minimum Redemption:</strong> ₹100 (100 Points)</li>
+                                        <li><strong>Processing Time:</strong> 3-5 business days via NEFT/RTGS</li>
+                                        <li><strong>Bank Account Required:</strong> Valid Indian bank account mandatory</li>
+                                        <li><strong>Point Conversion:</strong> 1 Point = ₹1 (fixed rate)</li>
+                                        <li><strong>Maximum per Request:</strong> Available balance limit</li>
+                                    </ul>
+                                </div>
+                                <div style="margin-top: var(--space-12); font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                                    <strong>ગુજરાતી:</strong> લઘુત્તમ રિડેમ્પશન ₹૧૦૦. પેમેન્ટ ૩-૵ દિવસમાં મળશે.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Processing -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">💳 Payment Processing Timeline | પેમેન્ટ પ્રોસેસિંગ સમયમર્યાદા</h3>
+                            <div style="background: var(--color-bg-4); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <div style="display: grid; gap: var(--space-12);">
+                                    <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                        <div style="background: var(--color-primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">1</div>
+                                        <div><strong>WhatsApp Request:</strong> Submit redemption request via WhatsApp (Instant)</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                        <div style="background: var(--color-primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">2</div>
+                                        <div><strong>Agent Review:</strong> Agent verifies points and details (4-6 hours)</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                        <div style="background: var(--color-primary); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">3</div>
+                                        <div><strong>Bank Transfer:</strong> NEFT/RTGS processing (2-3 working days)</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                        <div style="background: var(--color-success); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">4</div>
+                                        <div><strong>Confirmation:</strong> WhatsApp notification with transaction ID</div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: var(--space-16); padding: var(--space-12); background: var(--color-bg-6); border-radius: var(--radius-base);">
+                                    <strong>📞 Emergency Contact:</strong> For urgent requests, call agent directly at +91 9408694686
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Referrer Responsibilities -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">📝 Referrer Responsibilities | રેફરરની જવાબદારીઓ</h3>
+                            <div style="background: var(--color-bg-5); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <ul style="margin: 0; padding-left: var(--space-20);">
+                                    <li><strong>Accurate Information:</strong> Provide correct vehicle and customer details</li>
+                                    <li><strong>Follow-up:</strong> Ensure customers complete the insurance purchase process</li>
+                                    <li><strong>Ethical Conduct:</strong> No false promises or misleading information to customers</li>
+                                    <li><strong>Valid Bank Details:</strong> Maintain updated and accurate bank account information</li>
+                                    <li><strong>Communication:</strong> Respond to agent queries within 24 hours</li>
+                                    <li><strong>Compliance:</strong> Follow all insurance regulations and company policies</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Program Modifications -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">⚙️ Program Modifications &amp; Updates | પ્રોગ્રામ મોડિફિકેશન અને અપડેટ</h3>
+                            <div style="background: var(--color-bg-7); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <ul style="margin: 0; padding-left: var(--space-20);">
+                                    <li><strong>Right to Modify:</strong> Navkar Insurance reserves the right to modify terms with prior notice</li>
+                                    <li><strong>Point Values:</strong> Point values may be updated based on business requirements</li>
+                                    <li><strong>Notification:</strong> Users will be notified via WhatsApp for any major changes</li>
+                                    <li><strong>Grandfathering:</strong> Existing earned points remain valid during transitions</li>
+                                    <li><strong>Effective Changes:</strong> New terms apply to future referrals after notification date</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Dispute Resolution -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">⚖️ Dispute Resolution Process | વિવાદ સમાધાન પ્રક્રિયા</h3>
+                            <div style="background: var(--color-bg-8); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <div style="margin-bottom: var(--space-12);">
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">Contact Methods | સંપર્ક માર્ગો:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20);">
+                                        <li><strong>Primary:</strong> WhatsApp message to +91 9408694686</li>
+                                        <li><strong>Direct Call:</strong> +91 9408694686 (Business hours: 9 AM - 6 PM)</li>
+                                        <li><strong>Office Visit:</strong> Borsad Tehsil, Anand District, Gujarat</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">Resolution Timeline | સમાધાન સમયમર્યાદા:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20);">
+                                        <li>Initial Response: Within 24 hours</li>
+                                        <li>Investigation: 2-3 business days</li>
+                                        <li>Resolution: 5-7 business days maximum</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Account Suspension -->
+                        <div>
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">⚠️ Account Suspension/Termination | ખાતું સ્થગિત/સમાપ્તિ</h3>
+                            <div style="background: var(--color-bg-4); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <div style="margin-bottom: var(--space-12);">
+                                    <h4 style="margin: 0 0 var(--space-8) 0; color: var(--color-error);">Suspension Conditions | સ્થગનની શરતો:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20);">
+                                        <li>Providing false or misleading customer information</li>
+                                        <li>Attempting to claim duplicate referrals</li>
+                                        <li>Fraudulent activities or misrepresentation</li>
+                                        <li>Violation of insurance regulations</li>
+                                        <li>Abusive behavior towards agent or customers</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 style="margin: 0 0 var(--space-8) 0; color: var(--color-warning);">Appeal Process | અપીલ પ્રક્રિયા:</h4>
+                                    <p style="margin: 0;">Contact agent directly within 15 days of suspension for review and potential reinstatement.</p>
+                                </div>
+                                <div style="margin-top: var(--space-12); font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                                    <strong>ગુજરાતી:</strong> ખોટી માહિતી અથવા ડુપ્લિકેટ રેફરલને કારણે ખાતું બંધ કરી શકાય.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: var(--space-32); padding: var(--space-16); background: var(--color-bg-1); border-radius: var(--radius-base); text-align: center;">
+                            <p style="margin: 0; font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                                By using this referral system, you agree to these terms and conditions.<br>
+                                <strong>આ રેફરલ સિસ્ટમmalેેેેેીસમષમષમરભને અાઅ઴્, તમે આ નિયમો અને શરતો સ્વીકારો છો.</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Privacy Policy Tab -->
+            <div id="privacy-tab" class="tab-content">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" onclick="showTab('dashboard-tab')">હોમ | Home</button>
+                    <button class="nav-tab active">ગોપનીયતા | Privacy</button>
+                </div>
+
+                <div class="card" style="margin-bottom: var(--space-20);">
+                    <div class="card__header">
+                        <h2 style="text-align: center; color: var(--color-primary);">🔒 Privacy Policy | ગોપનીયતા નીતિ</h2>
+                        <p style="text-align: center; margin: var(--space-8) 0 0 0; font-size: var(--font-size-sm); color: var(--color-text-secondary);">Effective Date: October 13, 2025 | પ્રભાવી તારીખ: ૧૩ ઑક્ટોબર, ૨૦૨૵</p>
+                        <p style="text-align: center; margin: var(--space-4) 0 0 0; font-size: var(--font-size-xs); color: var(--color-text-secondary);">Data Protection Officer: Navkar Insurance Services</p>
+                    </div>
+                    <div class="card__body">
+                        <!-- Information Collection -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">📊 Information Collection and Usage | માહિતી સંકલન અને વપરાશ</h3>
+                            <div style="background: var(--color-bg-1); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <h4 style="margin: 0 0 var(--space-12) 0;">Data We Collect | અમે જે ડેટા સંકલીએ છીએ:</h4>
+                                <ul style="margin: 0; padding-left: var(--space-20);">
+                                    <li><strong>Personal Information:</strong> Name, mobile number, referral details</li>
+                                    <li><strong>Vehicle Information:</strong> Registration numbers, owner details</li>
+                                    <li><strong>Insurance Data:</strong> Policy types, previous insurance history</li>
+                                    <li><strong>Financial Information:</strong> Bank account details for reward redemption</li>
+                                    <li><strong>Communication:</strong> WhatsApp messages for notifications and support</li>
+                                </ul>
+                                <div style="margin-top: var(--space-16); padding: var(--space-12); background: var(--color-bg-3); border-radius: var(--radius-base);">
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">Usage Purpose | વપરાશનો હેતુ:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20); font-size: var(--font-size-sm);">
+                                        <li>Processing insurance referrals and managing point system</li>
+                                        <li>Facilitating reward redemptions and payments</li>
+                                        <li>WhatsApp communication for notifications and support</li>
+                                        <li>Maintaining accurate records for business operations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Storage & Security -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">🛡️ Data Storage and Security | ડેટા સ્ટોરેજ અને સુરક્ષા</h3>
+                            <div style="background: var(--color-bg-2); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <div style="margin-bottom: var(--space-16);">
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">📱 Local Device Storage:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20);">
+                                        <li><strong>Browser Storage:</strong> Your referral data is stored locally on your device</li>
+                                        <li><strong>No Cloud Storage:</strong> We do not store your data on external servers</li>
+                                        <li><strong>Device Control:</strong> You have full control over your stored data</li>
+                                        <li><strong>Privacy First:</strong> No personal data shared with third parties without consent</li>
+                                    </ul>
+                                </div>
+                                <div style="margin-bottom: var(--space-16);">
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">🔐 Security Measures:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20);">
+                                        <li><strong>WhatsApp Encryption:</strong> All messages use WhatsApp's end-to-end encryption</li>
+                                        <li><strong>Secure Transmission:</strong> Bank details transmitted securely via encrypted WhatsApp</li>
+                                        <li><strong>Agent Privacy:</strong> Only designated insurance agent has access to your requests</li>
+                                        <li><strong>No Public Visibility:</strong> Your information is never visible to other users</li>
+                                    </ul>
+                                </div>
+                                <div style="padding: var(--space-12); background: var(--color-bg-6); border-radius: var(--radius-base);">
+                                    <strong>ગુજરાતી:</strong> તમારો ડેટા તમારા ફોનમાં સુરક્ષિત રીતે સંગ્રહીત થાય છે. અમે તમારી માહિતી ત્રીજા પક્ષ સાથે શેર નહીં કરીએ.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp Integration -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">📱 WhatsApp Integration Data Handling | WhatsApp ઇન્ટિગ્રેશન ડેટા હેન્ડલિંગ</h3>
+                            <div style="background: var(--color-bg-3); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <div style="margin-bottom: var(--space-16);">
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">🔒 WhatsApp Security Features:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20);">
+                                        <li><strong>End-to-End Encryption:</strong> All messages are encrypted between you and agent</li>
+                                        <li><strong>Private Communication:</strong> Only you and insurance agent (+91 9408694686) can see messages</li>
+                                        <li><strong>Message History:</strong> WhatsApp maintains your conversation history for reference</li>
+                                        <li><strong>No App Storage:</strong> Messages are not stored or processed by our application</li>
+                                    </ul>
+                                </div>
+                                <div style="margin-bottom: var(--space-16);">
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">📮 Message Content:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20);">
+                                        <li><strong>Redemption Requests:</strong> Bank details, amount, personal information</li>
+                                        <li><strong>Support Messages:</strong> Account details, queries, assistance requests</li>
+                                        <li><strong>Notifications:</strong> Status updates, confirmations, important announcements</li>
+                                        <li><strong>Business Communication:</strong> Professional insurance-related correspondence</li>
+                                    </ul>
+                                </div>
+                                <div style="padding: var(--space-12); background: var(--color-bg-8); border-radius: var(--radius-base);">
+                                    <strong>🔴 Important:</strong> WhatsApp messages are governed by WhatsApp's privacy policy. We recommend reviewing <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" style="color: var(--color-primary);">WhatsApp's Privacy Policy</a> for complete understanding.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User Rights -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">📜 User Rights and Data Access | યૂઝર અધિકારો અને ડેટા એક્સેસ</h3>
+                            <div style="background: var(--color-bg-4); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <h4 style="margin: 0 0 var(--space-12) 0;">Your Rights | તમારા અધિકારો:</h4>
+                                <div style="display: grid; gap: var(--space-12);">
+                                    <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                        <div style="background: var(--color-success); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">✓</div>
+                                        <div><strong>Access:</strong> View all your stored referral data anytime within the application</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                        <div style="background: var(--color-success); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">✓</div>
+                                        <div><strong>Modify:</strong> Update your personal information, bank details, and referral data</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                        <div style="background: var(--color-success); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">✓</div>
+                                        <div><strong>Delete:</strong> Clear all your data from local device storage anytime</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                        <div style="background: var(--color-success); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">✓</div>
+                                        <div><strong>Export:</strong> Request copies of your referral history and point records</div>
+                                    </div>
+                                    <div style="display: flex; align-items: flex-start; gap: var(--space-12);">
+                                        <div style="background: var(--color-success); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); flex-shrink: 0;">✓</div>
+                                        <div><strong>Withdraw Consent:</strong> Stop using the system and delete all data</div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: var(--space-16); padding: var(--space-12); background: var(--color-bg-1); border-radius: var(--radius-base);">
+                                    <strong>How to Exercise Rights | અધિકારો કેવી રીતે વાપરવા:</strong><br>
+                                    Contact agent via WhatsApp (+91 9408694686) or use in-app data management features.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div style="margin-bottom: var(--space-24);">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">📞 Contact Information for Privacy Concerns | ગોપનીયતા સંબંધી સંપર્ક માહિતી</h3>
+                            <div style="background: var(--color-bg-5); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <div style="display: grid; gap: var(--space-16);">
+                                    <div style="background: var(--color-surface); padding: var(--space-16); border-radius: var(--radius-base); border: 1px solid var(--color-card-border);">
+                                        <h4 style="margin: 0 0 var(--space-8) 0; color: var(--color-primary);">Data Protection Officer</h4>
+                                        <p style="margin: 0; font-size: var(--font-size-sm);">
+                                            <strong>Company:</strong> Navkar Insurance Services<br>
+                                            <strong>Location:</strong> Borsad Tehsil, Anand District, Gujarat<br>
+                                            <strong>WhatsApp:</strong> +91 9408694686<br>
+                                            <strong>Email:</strong> privacy@navkarinsurance.com<br>
+                                            <strong>Business Hours:</strong> 9:00 AM - 6:00 PM (Monday to Saturday)
+                                        </p>
+                                    </div>
+                                    <div style="background: var(--color-surface); padding: var(--space-16); border-radius: var(--radius-base); border: 1px solid var(--color-card-border);">
+                                        <h4 style="margin: 0 0 var(--space-8) 0; color: var(--color-primary);">Privacy Query Response Time</h4>
+                                        <ul style="margin: 0; padding-left: var(--space-20); font-size: var(--font-size-sm);">
+                                            <li>WhatsApp Queries: Within 4-6 hours</li>
+                                            <li>Email Queries: Within 24-48 hours</li>
+                                            <li>Complex Issues: 3-5 business days</li>
+                                            <li>Data Deletion Requests: Immediate (local storage)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Policy Updates -->
+                        <div>
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">🔄 Policy Updates and Notifications | નીતિ અપડેટ અને નોટિફિકેશન</h3>
+                            <div style="background: var(--color-bg-6); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
+                                <div style="margin-bottom: var(--space-16);">
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">Update Process | અપડેટ પ્રક્રિયા:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20);">
+                                        <li><strong>Notification Method:</strong> WhatsApp message to all active users</li>
+                                        <li><strong>Advance Notice:</strong> Minimum 7 days for major changes</li>
+                                        <li><strong>Effective Date:</strong> Clearly communicated in update notifications</li>
+                                        <li><strong>Continued Use:</strong> Implies acceptance of updated privacy policy</li>
+                                    </ul>
+                                </div>
+                                <div style="margin-bottom: var(--space-16);">
+                                    <h4 style="margin: 0 0 var(--space-8) 0;">What Changes Require Notification:</h4>
+                                    <ul style="margin: 0; padding-left: var(--space-20);">
+                                        <li>Data collection practices modifications</li>
+                                        <li>Third-party data sharing changes</li>
+                                        <li>Security measure updates</li>
+                                        <li>Contact information changes</li>
+                                        <li>User rights modifications</li>
+                                    </ul>
+                                </div>
+                                <div style="padding: var(--space-12); background: var(--color-bg-7); border-radius: var(--radius-base);">
+                                    <strong>Current Version:</strong> 1.0 | <strong>Last Updated:</strong> October 13, 2025<br>
+                                    <strong>વર્તમાન વર્ણન:</strong> ૧.૦ | <strong>અંતિમ અપડેટ:</strong> ૧૩ ઑક્ટોબર, ૨૦૨૵
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: var(--space-32); padding: var(--space-16); background: var(--color-bg-1); border-radius: var(--radius-base); text-align: center;">
+                            <p style="margin: 0; font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                                Your privacy is important to us. We are committed to protecting your personal information.<br>
+                                <strong>તમારી ગોપનીયતા અમારે માટે મહત્વપૂર્ણ છે. અમે તમારી વ્યક્તિગત માહિતીની સુરક્ષા માટે પ્રતિબદ્ધ છીએ.</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Rewards Tab -->
             <div id="rewards-tab" class="tab-content">
