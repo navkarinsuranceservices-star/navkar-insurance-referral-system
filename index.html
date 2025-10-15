@@ -381,6 +381,49 @@
             rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
         }
 
+        /* Authentication Styles */
+        .auth-form {
+            width: 100%;
+        }
+        
+        .auth-screen {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Admin Panel Styles */
+        .admin-panel {
+            background: var(--color-bg-1);
+            padding: var(--space-16);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-20);
+        }
+        
+        .user-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-12);
+            margin-bottom: var(--space-16);
+        }
+        
+        .user-stat-card {
+            background: var(--color-surface);
+            padding: var(--space-12);
+            border-radius: var(--radius-base);
+            text-align: center;
+            border: 1px solid var(--color-card-border);
+        }
+        
+        .referral-user-info {
+            background: var(--color-bg-2);
+            padding: var(--space-8);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-8);
+            font-size: var(--font-size-sm);
+        }
+        
         /* Custom App Styles */
         .app-container {
             max-width: 480px;
@@ -541,8 +584,8 @@
         }
 
         .nav-tab.active {
-            background: var(--color-surface);
-            color: var(--color-text);
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
             box-shadow: var(--shadow-sm);
         }
 
@@ -712,6 +755,130 @@
             <h1>Navkar Insurance Referral System<br><span style="font-size: var(--font-size-lg); font-weight: var(--font-weight-normal);">નવકાર વીમા રેફરલ સિસ્ટમ</span></h1>
         </div>
 
+        <!-- Login/Register Screen -->
+        <div id="auth-screen" class="tab-content active">
+            <div style="padding: var(--space-32) var(--space-16);">
+                <!-- Logo/Header -->
+                <div style="text-align: center; margin-bottom: var(--space-32);">
+                    <h1 style="color: var(--color-primary); margin-bottom: var(--space-8);">🏢 નવકાર વીમા</h1>
+                    <p style="color: var(--color-text-secondary); font-size: var(--font-size-lg);">Insurance Referral System</p>
+                </div>
+
+                <!-- Tab Selection -->
+                <div class="nav-tabs" style="margin-bottom: var(--space-24);">
+                    <button class="nav-tab active" onclick="showAuthTab('login')">લૉગિન | Login</button>
+                    <button class="nav-tab" onclick="showAuthTab('register')">નોંધણી | Register</button>
+                    <button class="nav-tab" onclick="showAuthTab('owner')">માલિક | Owner</button>
+                </div>
+
+                <!-- User Login Form -->
+                <div id="login-form" class="auth-form">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 style="text-align: center; margin: 0;">🔑 Welcome Back | પાછા આવવા બદલ સ્વાગત</h3>
+                            <p style="text-align: center; margin: var(--space-8) 0 0 0; font-size: var(--font-size-sm); color: var(--color-text-secondary);">Enter mobile number to login</p>
+                        </div>
+                        <div class="card__body">
+                            <form id="user-login-form">
+                                <div class="form-group">
+                                    <label class="form-label bilingual-label">
+                                        Mobile Number<br>
+                                        <span class="gujarati-text">મોબાઇલ નંબર</span>
+                                    </label>
+                                    <input type="tel" class="form-control" id="login-mobile" required
+                                           placeholder="9876543210" pattern="[6-9][0-9]{9}">
+                                    <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: var(--space-4);">Enter registered mobile number | નોંધાયેલ મોબાઇલ નંબર દાખલ કરો</div>
+                                </div>
+                                <div class="action-buttons">
+                                    <button type="submit" class="btn btn--primary btn--full-width">
+                                        લૉગિન કરો<br>Login Now
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Registration Form -->
+                <div id="register-form" class="auth-form hidden">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 style="text-align: center; margin: 0;">📝 Create Account | ખાતું બનાવો</h3>
+                            <p style="text-align: center; margin: var(--space-8) 0 0 0; font-size: var(--font-size-sm); color: var(--color-text-secondary);">Register with name and mobile number</p>
+                        </div>
+                        <div class="card__body">
+                            <form id="user-register-form">
+                                <div class="form-group">
+                                    <label class="form-label bilingual-label">
+                                        Full Name<br>
+                                        <span class="gujarati-text">પૂરું નામ</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="register-name" required
+                                           placeholder="સુરેશ શાહ / Suresh Shah">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label bilingual-label">
+                                        Mobile Number<br>
+                                        <span class="gujarati-text">મોબાઇલ નંબર</span>
+                                    </label>
+                                    <input type="tel" class="form-control" id="register-mobile" required
+                                           placeholder="9876543210" pattern="[6-9][0-9]{9}">
+                                    <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); margin-top: var(--space-4);">Enter your mobile number for account creation | ખાતું બનાવવા માટે મોબાઇલ નંબર દાખલ કરો</div>
+                                </div>
+                                <div class="action-buttons">
+                                    <button type="submit" class="btn btn--primary btn--full-width">
+                                        ખાતું બનાવો<br>Create Account
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div style="background: var(--color-bg-3); padding: var(--space-12); border-radius: var(--radius-base); margin-top: var(--space-16); text-align: center;">
+                                <h4 style="margin: 0 0 var(--space-8) 0; font-size: var(--font-size-sm);">📋 Simple Registration | સરળ નોંધણી</h4>
+                                <div style="font-size: var(--font-size-xs); color: var(--color-text-secondary); line-height: 1.5;">
+                                    Just enter your name and mobile number to create account instantly!<br>
+                                    <span class="gujarati-text">ફક્ત નામ અને મોબાઇલ નંબર દાખલ કરી તુરંત ખાતું બનાવો!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Owner Login Form -->
+                <div id="owner-form" class="auth-form hidden">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 style="text-align: center; margin: 0;">👑 Owner Login | માલિક લૉગિન</h3>
+                        </div>
+                        <div class="card__body">
+                            <form id="owner-login-form">
+                                <div class="form-group">
+                                    <label class="form-label bilingual-label">
+                                        Username<br>
+                                        <span class="gujarati-text">વપરાશકર્તા નામ</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="owner-username" required
+                                           placeholder="owner">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label bilingual-label">
+                                        Password<br>
+                                        <span class="gujarati-text">પાસવર્ડ</span>
+                                    </label>
+                                    <input type="password" class="form-control" id="owner-password" required
+                                           placeholder="navkar2025">
+                                </div>
+                                <div class="action-buttons">
+                                    <button type="submit" class="btn btn--primary btn--full-width">
+                                        લૉગિન કરો<br>Login as Owner
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Main Content -->
         <div class="app-content">
             <!-- Dashboard Tab -->
@@ -766,12 +933,12 @@
                     <div style="margin-top: var(--space-24); padding-top: var(--space-16); border-top: 1px solid var(--color-border);">
                         <h4 style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-12);">Development Options | ડેવલપમેન્ટ વિકલ્પો</h4>
                         <div class="action-buttons" style="grid-template-columns: 1fr;">
-                            <button class="btn btn--outline btn--full-width" onclick="clearUserData()" style="font-size: var(--font-size-sm); padding: var(--space-8) var(--space-12);">
-                                🗑️ Clear All Data<br>
-                                <span class="gujarati-text">બધો ડેટા સાફ કરો</span>
+                            <button class="btn btn--outline btn--full-width" onclick="logoutUser()" style="font-size: var(--font-size-sm); padding: var(--space-8) var(--space-12);">
+                                🚪 Logout<br>
+                                <span class="gujarati-text">લૉગઆઉટ</span>
                             </button>
+                            <div id="admin-access-button"></div>
                         </div>
-                        <p style="font-size: var(--font-size-xs); color: var(--color-text-secondary); text-align: center; margin: var(--space-8) 0 0 0;">Use this to test with fresh user data | નવા યૂઝર ડેટા સાથે ટેસ્ટ કરવા માટે</p>
                     </div>
 
                 </div>
@@ -1574,15 +1741,26 @@
     </div>
 
     <script>
-        // Application State - STARTS CLEAN FOR EVERY USER
+        // User Authentication and Multi-User System
+        let currentUser = null;
+        let allUsers = {}; // Store all user accounts
+        
+        // Owner credentials
+        const ownerCredentials = {
+            username: "owner",
+            password: "navkar2025",
+            mobile: "9408694686"
+        };
+        
+        // Application State - Per User Account
         let appState = {
-            referrals: [], // Empty array - no dummy data
-            totalPoints: 0, // Zero points to start
-            nextId: 1, // Start from 1
+            referrals: [],
+            totalPoints: 0,
+            nextId: 1,
             userProfile: {
-                name: "તમારું નામ",
-                mobile: "તમારો નંબર", 
-                referralCode: "REF" + Math.random().toString(36).substr(2, 6).toUpperCase()
+                name: "",
+                mobile: "", 
+                referralCode: ""
             },
             totalEarned: 0,
             totalRedeemed: 0
@@ -1621,49 +1799,255 @@
             return window.navkarUserId;
         }
         
-        // Save user data in memory (session-based)
+        // Save user data with proper account isolation
         function saveUserData() {
-            // Data persists only during the browser session
-            // Each user/device will have independent data
-            console.log('User data saved to session - User ID:', getUserId());
+            if (currentUser) {
+                allUsers[currentUser.mobile] = {
+                    ...currentUser,
+                    ...appState
+                };
+                console.log('User data saved for:', currentUser.mobile);
+            }
         }
         
-        // Load user data (starts fresh each session)
-        function loadUserData() {
-            // Each browser/device starts with clean state
-            // No shared data between different users
-            console.log('Starting fresh session for User ID:', getUserId());
-        }
-        
-        // Clear all user data (reset to initial state)
-        function clearUserData() {
-            if (confirm('આ બધો ડેટા રદ કરશે! This will clear all your data! Are you sure?')) {
-                // Reset to initial state
+        // Load user data for specific account
+        function loadUserData(mobile) {
+            if (allUsers[mobile]) {
+                const userData = allUsers[mobile];
                 appState = {
-                    referrals: [],
+                    referrals: userData.referrals || [],
+                    totalPoints: userData.totalPoints || 0,
+                    nextId: userData.nextId || 1,
+                    userProfile: userData.userProfile || {
+                        name: userData.name,
+                        mobile: userData.mobile,
+                        referralCode: userData.referralCode
+                    },
+                    totalEarned: userData.totalEarned || 0,
+                    totalRedeemed: userData.totalRedeemed || 0
+                };
+                console.log('User data loaded for:', mobile);
+            }
+        }
+        
+        // Authentication Functions
+        function showAuthTab(tabName) {
+            // Hide all auth forms
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.add('hidden');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected form and activate tab
+            document.getElementById(tabName + '-form').classList.remove('hidden');
+            event.target.classList.add('active');
+        }
+        
+
+        
+        // Simple Login Process
+        function loginUser(mobile) {
+            if (mobile.length !== 10 || !/^[6-9]/.test(mobile)) {
+                showNotification('વૈધ મોબાઇલ નંબર દાખલ કરો! Enter valid mobile number!', 'error');
+                return false;
+            }
+            
+            if (!allUsers[mobile]) {
+                showNotification('ખાતું મળ્યું નથી! Account not found! Please register first.', 'error');
+                return false;
+            }
+            
+            currentUser = allUsers[mobile];
+            loadUserData(mobile);
+            
+            showNotification(`સ્વાગત ${currentUser.name}! Welcome back ${currentUser.name}!`, 'success');
+            return true;
+        }
+        
+        // Simple Registration Process
+        function registerUser(name, mobile) {
+            if (!name.trim()) {
+                showNotification('નામ દાખલ કરો! Please enter your name!', 'error');
+                return false;
+            }
+            
+            if (mobile.length !== 10 || !/^[6-9]/.test(mobile)) {
+                showNotification('વૈધ મોબાઇલ નંબર દાખલ કરો! Enter valid mobile number!', 'error');
+                return false;
+            }
+            
+            if (allUsers[mobile]) {
+                showNotification('આ મોબાઇલ નંબર પહેલેથી નોંધાયેલ છે! This mobile number is already registered!', 'error');
+                return false;
+            }
+            
+            const newUser = {
+                name: name.trim(),
+                mobile: mobile,
+                role: 'user',
+                referralCode: "REF" + Math.random().toString(36).substr(2, 6).toUpperCase(),
+                referrals: [],
+                totalPoints: 0,
+                nextId: 1,
+                totalEarned: 0,
+                totalRedeemed: 0
+            };
+            
+            allUsers[mobile] = newUser;
+            currentUser = newUser;
+            
+            // Initialize app state for new user
+            appState = {
+                referrals: [],
+                totalPoints: 0,
+                nextId: 1,
+                userProfile: {
+                    name: name.trim(),
+                    mobile: mobile,
+                    referralCode: newUser.referralCode
+                },
+                totalEarned: 0,
+                totalRedeemed: 0
+            };
+            
+            saveUserData();
+            
+            showNotification('ખાતું બન્યું! Account created successfully!', 'success');
+            return true;
+        }
+        
+
+        
+
+        
+
+        
+
+        
+        // Owner Login
+        function loginOwner(username, password) {
+            if (username === ownerCredentials.username && password === ownerCredentials.password) {
+                currentUser = {
+                    name: "Insurance Owner",
+                    mobile: ownerCredentials.mobile,
+                    role: "owner",
+                    username: username
+                };
+                
+                // Owner can see all users' data
+                appState = {
+                    referrals: getAllReferrals(),
                     totalPoints: 0,
                     nextId: 1,
                     userProfile: {
-                        name: "તમારું નામ",
-                        mobile: "તમારો નંબર",
-                        referralCode: "REF" + Math.random().toString(36).substr(2, 6).toUpperCase()
+                        name: "Insurance Owner",
+                        mobile: ownerCredentials.mobile,
+                        referralCode: "OWNER"
                     },
                     totalEarned: 0,
                     totalRedeemed: 0
                 };
-                redemptionHistory = [];
                 
-                // Generate new user ID
-                window.navkarUserId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                
-                initApp();
-                showNotification('બધો ડેટા સાફ થઈ ગયો! All data cleared! Starting fresh.', 'success');
+                showNotification('માલિક લૉગિન સફળ! Owner login successful!', 'success');
+                return true;
+            } else {
+                showNotification('ખોટા ક્રેડેન્શિયલ! Invalid credentials!', 'error');
+                return false;
             }
         }
+        
+        // Get all referrals (for owner view)
+        function getAllReferrals() {
+            let allReferrals = [];
+            Object.keys(allUsers).forEach(mobile => {
+                const user = allUsers[mobile];
+                if (user.referrals) {
+                    user.referrals.forEach(referral => {
+                        allReferrals.push({
+                            ...referral,
+                            userId: mobile,
+                            userName: user.name
+                        });
+                    });
+                }
+            });
+            return allReferrals;
+        }
+        
+        // Logout user - FIXED VERSION
+        function logoutUser() {
+            if (confirm('લૉગઆઉટ કરવા માંગો છો? Do you want to logout?')) {
+                // Save current user data before logout
+                if (currentUser) {
+                    saveUserData();
+                }
+                
+                // Clear all session data
+                currentUser = null;
+                appState = {
+                    referrals: [],
+                    totalPoints: 0,
+                    nextId: 1,
+                    userProfile: { name: "", mobile: "", referralCode: "" },
+                    totalEarned: 0,
+                    totalRedeemed: 0
+                };
+                
+                // Clear OTP state
+                otpState = {
+                    mobile: '',
+                    otp: '',
+                    generatedOtp: '',
+                    step: 'mobile',
+                    isLogin: false
+                };
+                
+                // Clear form inputs
+                document.getElementById('login-mobile').value = '';
+                document.getElementById('register-name').value = '';
+                document.getElementById('register-mobile').value = '';
+                document.getElementById('owner-username').value = '';
+                document.getElementById('owner-password').value = '';
+                
+                // Reset to default auth tab
+                showAuthTab('login');
+                
+                // Show auth screen
+                showAuthScreen();
+                
+                // Success notification
+                showNotification('લૉગઆઉટ સફળ! Logged out successfully!', 'success');
+            }
+        }
+        
+        // Show authentication screen
+        function showAuthScreen() {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById('auth-screen').classList.add('active');
+        }
+        
+        // Show main app (after successful login)
+        function showMainApp() {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById('dashboard-tab').classList.add('active');
+            initApp();
+        }
 
-        // Initialize app
+        // Initialize app with authentication check
         function initApp() {
-            loadUserData(); // Initialize clean session data
+            if (!currentUser) {
+                showAuthScreen();
+                return;
+            }
+            
             updateDashboard();
             renderReferrals();
             updateUserProfile();
@@ -1674,6 +2058,19 @@
             document.getElementById('user-referral-code').textContent = appState.userProfile.referralCode;
             document.getElementById('user-name-display').textContent = appState.userProfile.name;
             document.getElementById('user-mobile-display').textContent = appState.userProfile.mobile;
+            
+            // Show admin button if user is owner
+            const adminButtonContainer = document.getElementById('admin-access-button');
+            if (adminButtonContainer && currentUser && currentUser.role === 'owner') {
+                adminButtonContainer.innerHTML = `
+                    <button class="btn btn--secondary btn--full-width" onclick="showAdminDashboard()" style="font-size: var(--font-size-sm); padding: var(--space-8) var(--space-12); margin-top: var(--space-8);">
+                        👑 Admin Panel<br>
+                        <span class="gujarati-text">એડમિન પેનલ</span>
+                    </button>
+                `;
+            } else if (adminButtonContainer) {
+                adminButtonContainer.innerHTML = '';
+            }
         }
 
         // Show tab function
@@ -1686,9 +2083,12 @@
             // Show selected tab
             document.getElementById(tabId).classList.add('active');
             
-            // Update dashboard when returning to it
+            // Update content based on tab and user role
             if (tabId === 'dashboard-tab') {
                 updateDashboard();
+                if (currentUser && currentUser.role === 'owner') {
+                    setTimeout(() => showAdminDashboard(), 100);
+                }
             } else if (tabId === 'referrals-tab') {
                 renderReferrals();
             } else if (tabId === 'rewards-tab') {
@@ -1696,16 +2096,38 @@
             }
         }
 
-        // Update dashboard statistics
+        // Update dashboard statistics based on user role
         function updateDashboard() {
-            const totalReferrals = appState.referrals.length;
-            const pendingReferrals = appState.referrals.filter(r => r.status === 'Pending').length;
-            const completedReferrals = appState.referrals.filter(r => r.status === 'Completed');
+            let totalReferrals, pendingReferrals, completedReferrals;
             
-            // Calculate total points from completed referrals
-            appState.totalPoints = completedReferrals.reduce((sum, referral) => {
-                return sum + referral.pointsEarned;
-            }, 0);
+            if (currentUser.role === 'owner') {
+                // Owner sees all users' data
+                const allReferrals = getAllReferrals();
+                totalReferrals = allReferrals.length;
+                pendingReferrals = allReferrals.filter(r => r.status === 'Pending').length;
+                completedReferrals = allReferrals.filter(r => r.status === 'Completed');
+                
+                // Show total system points for owner
+                appState.totalPoints = completedReferrals.reduce((sum, referral) => {
+                    return sum + referral.pointsEarned;
+                }, 0);
+                
+                // Add admin dashboard for owner
+                if (document.getElementById('dashboard-tab').classList.contains('active')) {
+                    showAdminDashboard();
+                }
+            } else {
+                // Regular user sees only their data
+                const userReferrals = appState.referrals.filter(r => r.userId === currentUser.mobile);
+                totalReferrals = userReferrals.length;
+                pendingReferrals = userReferrals.filter(r => r.status === 'Pending').length;
+                completedReferrals = userReferrals.filter(r => r.status === 'Completed');
+                
+                // Calculate user's points
+                appState.totalPoints = completedReferrals.reduce((sum, referral) => {
+                    return sum + referral.pointsEarned;
+                }, 0);
+            }
 
             document.getElementById('total-points').textContent = appState.totalPoints;
             document.getElementById('cash-equivalent').textContent = `₹${appState.totalPoints} નાણાં | Cash Equivalent`;
@@ -1742,10 +2164,11 @@
                 // Save to session memory
                 saveUserData();
                 
-                // Update user profile if first time
-                if (appState.userProfile.name === "તમારું નામ") {
-                    appState.userProfile.name = formData.referrerName;
-                    appState.userProfile.mobile = formData.referrerMobile;
+                // Ensure referrer matches current user (for regular users)
+                if (currentUser.role === 'user') {
+                    formData.referrerName = currentUser.name;
+                    formData.referrerMobile = currentUser.mobile;
+                    formData.userId = currentUser.mobile;
                 }
                 
                 setButtonLoading(submitBtn, false);
@@ -1763,17 +2186,35 @@
             }, 1000);
         });
 
-        // Render referrals list
+        // Render referrals list with role-based view
         function renderReferrals() {
             const container = document.getElementById('referrals-list');
             
-            if (appState.referrals.length === 0) {
+            // Get referrals based on user role
+            let referralsToShow = [];
+            if (currentUser.role === 'owner') {
+                referralsToShow = getAllReferrals();
+            } else {
+                referralsToShow = appState.referrals.filter(r => r.userId === currentUser.mobile);
+            }
+            
+            if (referralsToShow.length === 0) {
+                const message = currentUser.role === 'owner' ? 
+                    'કોઈ રેફરલ નથી<br>No referrals in system yet' :
+                    'કોઈ રેફરલ નથી<br>No referrals yet';
+                const buttonText = currentUser.role === 'owner' ? 
+                    'એડમિન ડેશબોર્ડ<br>Admin Dashboard' :
+                    'પ્રથમ રેફરલ ઉમેરો<br>Add First Referral';
+                const buttonAction = currentUser.role === 'owner' ? 
+                    "showAdminDashboard()" :
+                    "showTab('add-referral-tab')";
+                    
                 container.innerHTML = `
                     <div class="card">
                         <div class="card__body" style="text-align: center;">
-                            <p>કોઈ રેફરલ નથી<br>No referrals yet</p>
-                            <button class="btn btn--primary" onclick="showTab('add-referral-tab')">
-                                પ્રથમ રેફરલ ઉમેરો<br>Add First Referral
+                            <p>${message}</p>
+                            <button class="btn btn--primary" onclick="${buttonAction}">
+                                ${buttonText}
                             </button>
                         </div>
                     </div>
@@ -1781,12 +2222,17 @@
                 return;
             }
 
-            container.innerHTML = appState.referrals.map(referral => {
+            container.innerHTML = referralsToShow.map(referral => {
                 const statusClass = referral.status === 'Completed' ? 'status--success' : 
                                   referral.status === 'Pending' ? 'status--warning' : 'status--error';
                                   
                 return `
                     <div class="referral-item">
+                        ${currentUser.role === 'owner' && referral.userName ? `
+                            <div class="referral-user-info">
+                                <strong>👤 User:</strong> ${referral.userName} (${referral.userId})
+                            </div>
+                        ` : ''}
                         <div class="referral-header">
                             <h4>${referral.vehicleNumber}</h4>
                             <span class="status ${statusClass}">${referral.status}</span>
@@ -1798,11 +2244,15 @@
                             <p><strong>Referrer:</strong> ${referral.referrerName}</p>
                             <p><strong>Date:</strong> ${referral.date}</p>
                             <p><strong>Points:</strong> ${referral.pointsEarned} પોઈન્ટ્સ</p>
-                            ${referral.status === 'Pending' ? `
+                            ${referral.status === 'Pending' && currentUser.role === 'owner' ? `
                                 <div style="margin-top: var(--space-12);">
                                     <button class="btn btn--primary btn--sm" onclick="completeReferral(${referral.id})">
                                         પૂર્ણ કરો | Mark Complete
                                     </button>
+                                </div>
+                            ` : referral.status === 'Pending' ? `
+                                <div style="margin-top: var(--space-12); padding: var(--space-8); background: var(--color-bg-2); border-radius: var(--radius-base); text-align: center;">
+                                    <span style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">⏳ Waiting for approval | મંજૂરીની રાહમાં</span>
                                 </div>
                             ` : ''}
                         </div>
@@ -1811,8 +2261,58 @@
             }).join('');
         }
 
-        // Complete referral
+        // Delete referral (Users only - Pending referrals only)
+        function deleteReferral(id) {
+            if (currentUser.role !== 'user') {
+                showNotification('માત્ર યૂજર જ રેફરલ ડિલીટ કરી શકે છે! Only users can delete their referrals!', 'error');
+                return;
+            }
+            
+            const referral = appState.referrals.find(r => r.id === id && r.userId === currentUser.mobile);
+            if (!referral) {
+                showNotification('રેફરલ મળ્યું નથી! Referral not found!', 'error');
+                return;
+            }
+            
+            if (referral.status === 'Completed') {
+                showNotification('પૂર્ણ થયેલા રેફરલ કાઢી શકાતા નથી! Cannot delete completed referrals!', 'error');
+                return;
+            }
+            
+            // Show confirmation dialog
+            const confirmMessage = `શું તમે ખરેખર આ રેફરલ કાઢી નાખવા માંગો છો?\n\nAre you sure you want to delete this referral?\n\nVehicle: ${referral.vehicleNumber}\nOwner: ${referral.ownerName}\nPolicy: ${referral.policyType}`;
+            
+            if (confirm(confirmMessage)) {
+                // Remove referral from array
+                const referralIndex = appState.referrals.findIndex(r => r.id === id);
+                if (referralIndex > -1) {
+                    appState.referrals.splice(referralIndex, 1);
+                    
+                    // Update user data
+                    if (allUsers[currentUser.mobile]) {
+                        allUsers[currentUser.mobile].referrals = appState.referrals;
+                    }
+                    
+                    // Save updated data
+                    saveUserData();
+                    
+                    // Show success notification
+                    showNotification('રેફરલ કાઢી નાખ્યું! Referral deleted successfully!', 'success');
+                    
+                    // Refresh displays
+                    renderReferrals();
+                    updateDashboard();
+                }
+            }
+        }
+        
+        // Complete referral (Owner only)
         function completeReferral(id) {
+            if (currentUser.role !== 'owner') {
+                showNotification('માત્ર માલિક જ રેફરલ પૂર્ણ કરી શકે છે! Only owner can mark referrals as completed!', 'error');
+                return;
+            }
+            
             const referral = appState.referrals.find(r => r.id === id);
             if (referral) {
                 const button = event.target;
@@ -1823,13 +2323,26 @@
                     referral.status = 'Completed';
                     referral.pointsEarned = pointsMapping[referral.policyType] || 0;
                     
-                    // Save to session memory
+                    // Update the user's data in allUsers
+                    if (referral.userId && allUsers[referral.userId]) {
+                        const userReferrals = allUsers[referral.userId].referrals || [];
+                        const userReferral = userReferrals.find(r => r.id === id);
+                        if (userReferral) {
+                            userReferral.status = 'Completed';
+                            userReferral.pointsEarned = referral.pointsEarned;
+                            
+                            // Update user's total points
+                            allUsers[referral.userId].totalPoints = (allUsers[referral.userId].totalPoints || 0) + referral.pointsEarned;
+                        }
+                    }
+                    
+                    // Save all user data
                     saveUserData();
                     
                     setButtonLoading(button, false);
                     
                     // Show success notification
-                    showNotification(`રેફરલ પૂર્ણ! Referral completed!\n+${referral.pointsEarned} points earned!`, 'success');
+                    showNotification(`રેફરલ પૂર્ણ! Referral completed!\n+${referral.pointsEarned} points earned for ${referral.userName}!`, 'success');
                     
                     renderReferrals();
                     updateDashboard();
@@ -1837,8 +2350,26 @@
             }
         }
 
-        // Update rewards tab
+        // Update rewards tab (disable for owner)
         function updateRewardsTab() {
+            if (currentUser.role === 'owner') {
+                // Owner cannot redeem rewards - show message
+                document.getElementById('rewards-points').textContent = '0';
+                document.getElementById('current-balance').textContent = '0';
+                document.getElementById('cash-value').textContent = '0';
+                
+                const eligibilityMessage = document.getElementById('eligibility-message');
+                const redemptionButton = document.getElementById('redemption-button');
+                
+                eligibilityMessage.innerHTML = '👑 માલિક તરીકે તમે રિવાર્ડ રિડીમ કરી શકતા નથી! As owner, you cannot redeem rewards!';
+                eligibilityMessage.style.background = 'var(--color-bg-8)';
+                eligibilityMessage.style.color = 'var(--color-info)';
+                redemptionButton.disabled = true;
+                redemptionButton.style.opacity = '0.3';
+                redemptionButton.textContent = 'Owner Access Disabled | માલિક એક્સેસ બંધ';
+                return;
+            }
+            
             const currentPoints = appState.totalPoints;
             document.getElementById('rewards-points').textContent = currentPoints;
             document.getElementById('current-balance').textContent = currentPoints;
@@ -1854,17 +2385,24 @@
                 eligibilityMessage.style.color = 'var(--color-success)';
                 redemptionButton.disabled = false;
                 redemptionButton.style.opacity = '1';
+                redemptionButton.innerHTML = '📱 Submit WhatsApp Request<br><span class="gujarati-text">WhatsApp વિનંતી મોકલો</span>';
             } else {
                 eligibilityMessage.innerHTML = `❌ ${100 - currentPoints} વધુ પોઇન્ટ્સ જરૂરી! Need ${100 - currentPoints} more points!`;
                 eligibilityMessage.style.background = 'var(--color-bg-4)';
                 eligibilityMessage.style.color = 'var(--color-warning)';
                 redemptionButton.disabled = true;
                 redemptionButton.style.opacity = '0.5';
+                redemptionButton.innerHTML = '📱 Submit WhatsApp Request<br><span class="gujarati-text">WhatsApp વિનંતી મોકલો</span>';
             }
         }
         
-        // Open redemption form (WhatsApp Integration)
+        // Open redemption form (WhatsApp Integration) - Users only
         function openRedemptionForm() {
+            if (currentUser.role === 'owner') {
+                showNotification('માલિક તરીકે તમે રિવાર્ડ રિડીમ કરી શકતા નથી! As owner, you cannot redeem rewards!', 'error');
+                return;
+            }
+            
             const currentPoints = appState.totalPoints;
             
             if (currentPoints < 100) {
@@ -2174,12 +2712,166 @@ Please process this redemption request.`;
 
 
         
-        // NO SAMPLE DATA - EVERY USER STARTS CLEAN
-        // This function has been removed to ensure clean user experience
+        // Authentication Form Handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            // User Login Form - Simple mobile number login
+            document.getElementById('user-login-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const mobile = document.getElementById('login-mobile').value.trim();
+                
+                if (loginUser(mobile)) {
+                    showMainApp();
+                }
+            });
+            
+            // User Registration Form - Name + Mobile registration
+            document.getElementById('user-register-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('register-name').value.trim();
+                const mobile = document.getElementById('register-mobile').value.trim();
+                
+                if (registerUser(name, mobile)) {
+                    showMainApp();
+                }
+            });
+            
+            // Owner Login Form
+            document.getElementById('owner-login-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('owner-username').value.trim();
+                const password = document.getElementById('owner-password').value.trim();
+                
+                if (loginOwner(username, password)) {
+                    showMainApp();
+                }
+            });
+        });
         
-        // Initialize app with clean data for each user
+        // Show admin dashboard (Owner only)
+        function showAdminDashboard() {
+            if (currentUser.role !== 'owner') {
+                showNotification('માત્ર માલિક જ એડમિન ડેશબોર્ડ જોઈ શકે છે! Only owner can access admin dashboard!', 'error');
+                return;
+            }
+            
+            const dashboardContent = document.querySelector('#dashboard-tab .app-content');
+            if (!dashboardContent) return;
+            
+            // Count total users and system stats
+            const totalUsers = Object.keys(allUsers).length;
+            const allReferrals = getAllReferrals();
+            const totalSystemPoints = allReferrals.reduce((sum, ref) => sum + (ref.pointsEarned || 0), 0);
+            const pendingApprovals = allReferrals.filter(r => r.status === 'Pending').length;
+            
+            // Insert admin panel at the top
+            const existingPanel = document.getElementById('admin-panel');
+            if (existingPanel) existingPanel.remove();
+            
+            const adminPanel = `
+                <div id="admin-panel" class="admin-panel">
+                    <h3 style="margin: 0 0 var(--space-16) 0; color: var(--color-primary); text-align: center;">
+                        👑 Admin Dashboard | એડમિન ડેશબોર્ડ
+                    </h3>
+                    
+                    <div class="user-stats-grid">
+                        <div class="user-stat-card">
+                            <h4 style="margin: 0; color: var(--color-primary);">${totalUsers}</h4>
+                            <p style="margin: var(--space-4) 0 0 0; font-size: var(--font-size-sm);">કુલ યૂઝર<br>Total Users</p>
+                        </div>
+                        <div class="user-stat-card">
+                            <h4 style="margin: 0; color: var(--color-warning);">${pendingApprovals}</h4>
+                            <p style="margin: var(--space-4) 0 0 0; font-size: var(--font-size-sm);">બાકી મંજૂરી<br>Pending Approvals</p>
+                        </div>
+                        <div class="user-stat-card">
+                            <h4 style="margin: 0; color: var(--color-success);">${totalSystemPoints}</h4>
+                            <p style="margin: var(--space-4) 0 0 0; font-size: var(--font-size-sm);">કુલ પોઈન્ટ્સ<br>Total Points</p>
+                        </div>
+                        <div class="user-stat-card">
+                            <h4 style="margin: 0; color: var(--color-info);">${allReferrals.length}</h4>
+                            <p style="margin: var(--space-4) 0 0 0; font-size: var(--font-size-sm);">કુલ રેફરલ<br>All Referrals</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <button class="btn btn--primary" onclick="showTab('referrals-tab')">
+                            બધા રેફરલ જુઓ<br>View All Referrals
+                        </button>
+                        <button class="btn btn--secondary" onclick="showUserList()">
+                            યૂઝર લિસ્ટ<br>User List
+                        </button>
+                        <button class="btn btn--outline" onclick="exportData()">
+                            ડેટા એક્સપોર્ટ<br>Export Data
+                        </button>
+                    </div>
+                    
+                    <div style="margin-top: var(--space-16); padding: var(--space-12); background: var(--color-bg-3); border-radius: var(--radius-base); text-align: center;">
+                        <p style="margin: 0; font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                            👑 Logged in as: <strong>${currentUser.name}</strong> (Owner)
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            dashboardContent.insertAdjacentHTML('afterbegin', adminPanel);
+        }
+        
+        // Show user list (Owner only)
+        function showUserList() {
+            if (currentUser.role !== 'owner') return;
+            
+            let userListHtml = '<div style="max-height: 60vh; overflow-y: auto;">';
+            userListHtml += '<h4 style="margin-bottom: var(--space-16);">📋 All Users | બધા યૂઝર</h4>';
+            
+            Object.keys(allUsers).forEach(mobile => {
+                const user = allUsers[mobile];
+                const userReferrals = user.referrals || [];
+                const userPoints = user.totalPoints || 0;
+                
+                userListHtml += `
+                    <div style="background: var(--color-surface); border: 1px solid var(--color-card-border); border-radius: var(--radius-base); padding: var(--space-12); margin-bottom: var(--space-12);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-8);">
+                            <strong>${user.name}</strong>
+                            <span class="status status--info">${userPoints} Points</span>
+                        </div>
+                        <div style="font-size: var(--font-size-sm); color: var(--color-text-secondary);">
+                            <p>📱 ${mobile} | 🔗 ${user.referralCode}</p>
+                            <p>📊 Referrals: ${userReferrals.length} | ✅ Completed: ${userReferrals.filter(r => r.status === 'Completed').length}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            userListHtml += '</div>';
+            
+            // Show in notification (or could be a modal)
+            showNotification(userListHtml, 'info');
+        }
+        
+        // Export data (Owner only)
+        function exportData() {
+            if (currentUser.role !== 'owner') return;
+            
+            const exportData = {
+                users: allUsers,
+                totalUsers: Object.keys(allUsers).length,
+                totalReferrals: getAllReferrals().length,
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(exportData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `navkar-insurance-data-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            
+            showNotification('ડેટા એક્સપોર્ટ થઈ ગયો! Data exported successfully!', 'success');
+        }
+        
+        // Initialize app with authentication
         window.addEventListener('load', () => {
-            initApp(); // No sample data - starts completely clean
+            initApp();
         });
     </script>
 </body>
