@@ -761,6 +761,18 @@
                     <button class="btn btn--secondary btn--full-width" onclick="showTab('privacy-tab')">
                         ગોપનીયતા નીતિ<br>Privacy Policy
                     </button>
+                    
+                    <!-- Development/Testing Options -->
+                    <div style="margin-top: var(--space-24); padding-top: var(--space-16); border-top: 1px solid var(--color-border);">
+                        <h4 style="font-size: var(--font-size-sm); color: var(--color-text-secondary); margin-bottom: var(--space-12);">Development Options | ડેવલપમેન્ટ વિકલ્પો</h4>
+                        <div class="action-buttons" style="grid-template-columns: 1fr;">
+                            <button class="btn btn--outline btn--full-width" onclick="clearUserData()" style="font-size: var(--font-size-sm); padding: var(--space-8) var(--space-12);">
+                                🗑️ Clear All Data<br>
+                                <span class="gujarati-text">બધો ડેટા સાફ કરો</span>
+                            </button>
+                        </div>
+                        <p style="font-size: var(--font-size-xs); color: var(--color-text-secondary); text-align: center; margin: var(--space-8) 0 0 0;">Use this to test with fresh user data | નવા યૂઝર ડેટા સાથે ટેસ્ટ કરવા માટે</p>
+                    </div>
 
                 </div>
 
@@ -919,7 +931,7 @@
                     <div class="card__body">
                         <!-- Eligibility Requirements -->
                         <div style="margin-bottom: var(--space-24);">
-                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);👥 Eligibility Requirements | પાત્રતાની જરૂરિયાતો</h3>
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-16);">👥 Eligibility Requirements | પાત્રતાની જરૂરિયાતો</h3>
                             <div style="background: var(--color-bg-1); padding: var(--space-16); border-radius: var(--radius-base); line-height: 1.6;">
                                 <ul style="margin: 0; padding-left: var(--space-20);">
                                     <li><strong>Bank Account Mandatory:</strong> You must have a valid Indian bank account to redeem rewards</li>
@@ -1313,13 +1325,13 @@
                         <div id="eligibility-status" style="padding: var(--space-16); background: var(--color-bg-1); border-radius: var(--radius-base); margin-bottom: var(--space-16);">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-12);">
                                 <span style="font-weight: var(--font-weight-medium);">Available Points:</span>
-                                <span style="font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); color: var(--color-primary);" id="current-balance">850</span>
+                                <span style="font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); color: var(--color-primary);" id="current-balance">0</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-16);">
                                 <span style="font-weight: var(--font-weight-medium);">Cash Value:</span>
-                                <span style="font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); color: var(--color-success);">₹<span id="cash-value">850</span></span>
+                                <span style="font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); color: var(--color-success);">₹<span id="cash-value">0</span></span>
                             </div>
-                            <div id="eligibility-message" style="text-align: center; padding: var(--space-12); background: var(--color-bg-3); border-radius: var(--radius-base);">✅ પાત્ર છો! You're eligible to redeem!</div>
+                            <div id="eligibility-message" style="text-align: center; padding: var(--space-12); background: var(--color-bg-4); border-radius: var(--radius-base); color: var(--color-warning);">❌ 100 વધુ પોઇન્ટ્સ જરૂરી! Need 100 more points!</div>
                         </div>
                         
                         <div class="action-buttons">
@@ -1562,56 +1574,18 @@
     </div>
 
     <script>
-        // Application State
+        // Application State - STARTS CLEAN FOR EVERY USER
         let appState = {
-            referrals: [
-                {
-                    id: 1,
-                    vehicleNumber: "GJ-05-AB-1234",
-                    ownerName: "રમેશ પટેલ",
-                    mobile: "9876543210",
-                    referrerName: "સુરેશ શાહ",
-                    referrerMobile: "9876543211",
-                    policyType: "Two Wheeler Comprehensive",
-                    status: "Completed",
-                    pointsEarned: 100,
-                    date: "2025-10-01",
-                    previousPolicy: ""
-                },
-                {
-                    id: 2,
-                    vehicleNumber: "GJ-05-CD-5678",
-                    ownerName: "પ્રિયા મહેતા",
-                    mobile: "9876543212",
-                    referrerName: "અનિલ શાહ",
-                    referrerMobile: "9876543213",
-                    policyType: "Private Car Comprehensive",
-                    status: "Completed",
-                    pointsEarned: 400,
-                    date: "2025-10-05",
-                    previousPolicy: "HDFC ERGO - Policy ended"
-                },
-                {
-                    id: 3,
-                    vehicleNumber: "GJ-05-EF-9012",
-                    ownerName: "વિકાસ જોશી",
-                    mobile: "9876543214",
-                    referrerName: "રાજ પટેલ",
-                    referrerMobile: "9876543215",
-                    policyType: "Commercial Comprehensive",
-                    status: "Pending",
-                    pointsEarned: 0,
-                    date: "2025-10-10",
-                    previousPolicy: ""
-                }
-            ],
-            totalPoints: 850,
-            nextId: 4,
+            referrals: [], // Empty array - no dummy data
+            totalPoints: 0, // Zero points to start
+            nextId: 1, // Start from 1
             userProfile: {
                 name: "તમારું નામ",
-                mobile: "તમારો નંબર",
+                mobile: "તમારો નંબર", 
                 referralCode: "REF" + Math.random().toString(36).substr(2, 6).toUpperCase()
-            }
+            },
+            totalEarned: 0,
+            totalRedeemed: 0
         };
 
         // Points mapping
@@ -1638,9 +1612,58 @@
         
         // Local redemption history storage
         let redemptionHistory = [];
+        
+        // Generate unique user ID for current browser session
+        function getUserId() {
+            if (!window.navkarUserId) {
+                window.navkarUserId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            }
+            return window.navkarUserId;
+        }
+        
+        // Save user data in memory (session-based)
+        function saveUserData() {
+            // Data persists only during the browser session
+            // Each user/device will have independent data
+            console.log('User data saved to session - User ID:', getUserId());
+        }
+        
+        // Load user data (starts fresh each session)
+        function loadUserData() {
+            // Each browser/device starts with clean state
+            // No shared data between different users
+            console.log('Starting fresh session for User ID:', getUserId());
+        }
+        
+        // Clear all user data (reset to initial state)
+        function clearUserData() {
+            if (confirm('આ બધો ડેટા રદ કરશે! This will clear all your data! Are you sure?')) {
+                // Reset to initial state
+                appState = {
+                    referrals: [],
+                    totalPoints: 0,
+                    nextId: 1,
+                    userProfile: {
+                        name: "તમારું નામ",
+                        mobile: "તમારો નંબર",
+                        referralCode: "REF" + Math.random().toString(36).substr(2, 6).toUpperCase()
+                    },
+                    totalEarned: 0,
+                    totalRedeemed: 0
+                };
+                redemptionHistory = [];
+                
+                // Generate new user ID
+                window.navkarUserId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                
+                initApp();
+                showNotification('બધો ડેટા સાફ થઈ ગયો! All data cleared! Starting fresh.', 'success');
+            }
+        }
 
         // Initialize app
         function initApp() {
+            loadUserData(); // Initialize clean session data
             updateDashboard();
             renderReferrals();
             updateUserProfile();
@@ -1715,6 +1738,9 @@
 
                 // Add to referrals
                 appState.referrals.push(formData);
+                
+                // Save to session memory
+                saveUserData();
                 
                 // Update user profile if first time
                 if (appState.userProfile.name === "તમારું નામ") {
@@ -1796,6 +1822,9 @@
                 setTimeout(() => {
                     referral.status = 'Completed';
                     referral.pointsEarned = pointsMapping[referral.policyType] || 0;
+                    
+                    // Save to session memory
+                    saveUserData();
                     
                     setButtonLoading(button, false);
                     
@@ -1973,6 +2002,9 @@
             
             redemptionHistory.unshift(redemptionRequest);
             
+            // Save to session memory
+            saveUserData();
+            
             // Show success message and open WhatsApp
             showNotification('✅ રિડેમ્પશન વિનંતી તૈયાર છે! Redemption request ready!\n\nWhatsApp opening with your request...', 'success');
             
@@ -1982,6 +2014,11 @@
                 
                 // Deduct points from balance (temporary until agent confirms)
                 appState.totalPoints -= parseInt(redeemAmount);
+                appState.totalRedeemed += parseInt(redeemAmount);
+                
+                // Save updated state
+                saveUserData();
+                
                 updateDashboard();
                 updateRewardsTab();
                 
@@ -2137,46 +2174,12 @@ Please process this redemption request.`;
 
 
         
-        // Add some sample completed referrals for demo
-        function addSampleData() {
-            // This ensures we have some demo data to show the working system
-            if (appState.referrals.length < 5) {
-                const sampleReferrals = [
-                    {
-                        id: appState.nextId++,
-                        vehicleNumber: "GJ-05-XY-7890",
-                        ownerName: "મીરા શાહ",
-                        mobile: "9876543216",
-                        referrerName: "તમારું નામ",
-                        referrerMobile: "તમારો નંબર",
-                        policyType: "Two Wheeler TP",
-                        status: "Completed",
-                        pointsEarned: 50,
-                        date: "2025-09-20",
-                        previousPolicy: ""
-                    },
-                    {
-                        id: appState.nextId++,
-                        vehicleNumber: "GJ-05-PQ-3456",
-                        ownerName: "કિરણ પટેલ",
-                        mobile: "9876543217",
-                        referrerName: "તમારું નામ",
-                        referrerMobile: "તમારો નંબર",
-                        policyType: "Commercial TP",
-                        status: "Completed",
-                        pointsEarned: 400,
-                        date: "2025-09-25",
-                        previousPolicy: ""
-                    }
-                ];
-                appState.referrals.push(...sampleReferrals);
-            }
-        }
+        // NO SAMPLE DATA - EVERY USER STARTS CLEAN
+        // This function has been removed to ensure clean user experience
         
-        // Call sample data function on load (for demo purposes)
+        // Initialize app with clean data for each user
         window.addEventListener('load', () => {
-            addSampleData();
-            initApp();
+            initApp(); // No sample data - starts completely clean
         });
     </script>
 </body>
